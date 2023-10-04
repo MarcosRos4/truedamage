@@ -81,28 +81,11 @@
    top: 989px;
    overflow: visible;
 }
-
-
-
-/* smartfone grande */
-@media (max-height: 896px) {
-   .cadastro-de-eventos > img{
-      top: 100px;
-   }
-   
-   .faixa-giants{
-      top: -75px;
-   }
-
-   .faixa-giants2{
-      top: -75px;
-   }
-}
  
 /* sansung s8*/
 @media (min-width: 360px) {
    .cadastro-de-eventos{
-      max-height: 896px;
+      max-height: 915px;
    }
 
    .formulario {
@@ -147,7 +130,7 @@
 }
 
 /* ipad */
-@media (min-width: 820px) {
+@media (min-width: 768px) {
    body{
       background-color: #000000;
    }
@@ -188,5 +171,52 @@
 
    .faixa-giants2 {
       top: 1011px;
+   }
+}
+
+@media (min-width: 1900px) {
+
+   .cadastro-de-eventos > img {
+      position: relative;
+      top: 0px;
+   }
+
+   .formulario {
+   
+      width: 47%;
+      height: 74%;
+      position: absolute;
+      left: 27%;
+      top: 13%;
+      gap: 20px;
+      
+   }
+   
+   .formulario > label{
+      font-size: 3em;
+   }
+   
+   .formulario > input {
+      font-size: 2em;
+   }
+   
+   .formulario > div{
+      display: flex;
+      gap: 7%;
+   }
+   
+   .formulario > div > input{
+      font-size: 2em;
+      border-radius: 19px;
+      width: 270px;
+      height: 61px;
+   }
+   
+   .faixa-giants {
+      top: 36px;
+   }
+   
+   .faixa-giants2 {
+      top: 986px;
    }
 }
