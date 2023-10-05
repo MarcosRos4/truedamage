@@ -82,7 +82,7 @@
    overflow: visible;
 }
  
-/* sansung s8*/
+/* samsung s8*/
 @media (min-width: 360px) {
    .cadastro-de-eventos{
       max-height: 915px;

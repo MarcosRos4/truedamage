@@ -1,0 +1,20 @@
+.pagina {
+    background-color: black;
+    font-size: 50px;
+    color: white;
+}
+
+header, p{
+    display: inline;
+}
+
+.faixa-1 {
+    display: inline;
+    border: solid purple;
+    border-radius: 20px;
+}
+
+.faixa-2 {
+    justify-content: space-between;
+}
+

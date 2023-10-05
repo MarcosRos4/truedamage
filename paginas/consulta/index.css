@@ -1,0 +1,213 @@
+body {
+    width: 1920px;
+    height: 1080px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.pagina {
+    width: 1920px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu {    
+    /* width: 1065px; */
+    width: 60.4%;
+    height: 781.314px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pesquisa {
+    width: 100%;
+    height: 53.214px;
+    border-radius: 17px;
+    border: 3px solid #9224FF;
+    
+    color: #FFF;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    font-style: normal;
+    line-height: normal;
+}
+
+
+.filtro{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 53.721px;
+
+    border-radius: 17px;
+    border: 3px solid #9224FF;
+
+    color: #FFF;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.tabela-eventos{
+    width: 100%;
+    height: 655.459px;
+
+    border-radius: 29px;
+    background: rgba(3, 2, 2, 0.61);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.evento {
+    width: 100%;
+    height: 125.06px;
+
+
+    border-radius: 29px;
+    background: rgba(0, 255, 183, 0.66);
+
+    color: #FFF;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#cadastrar{
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+}
+
+#quiana {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 538.532px;
+    height: 446.204px;
+    transform: rotate(93.547deg);
+
+    border-radius: 213px;
+    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+}
+
+#akali {
+    position: absolute;
+    top: 100px;
+    left: 1200px;
+    width: 538.218px;
+    height: 396.521px;
+    transform: rotate(90deg);
+
+    border-radius: 198.261px;
+    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+}
+
+.faixa-giants {
+    position: absolute;
+    top: 25px;
+}
+
+.faixa-giants2 {
+    position: absolute;
+    top: 910px;
+}
+
+/* iPad Air */
+
+@media (max-width: 820px) {
+    /* .pagina {
+        width: 820px;
+        height: 1180px;
+    } */
+    
+    .menu {
+        position: absolute;
+        top: 566px;
+        left: 50px;
+        width: 150%;
+        height: 600px;
+    }
+
+    .faixa-giants {
+        top: 435px;
+    }
+
+    .faixa-giants2 {
+        top: 1257px;
+    }
+}
+
+/* Samsung S20 / IPhone X */
+
+@media (max-width: 412px) {
+    .pagina {
+        width: 412px;
+        height: 915px;
+    }
+    
+    
+    .menu {
+        position: absolute;
+        top: 530px;
+        left: 20px;
+        width: 90%;
+        height: 915px;
+        font-size: 0.6em;
+    }
+
+    .faixa-giants {
+        top: 496px;
+    }
+
+    .faixa-giants2 {
+        top: 1318px;
+    }
+}
+
+/* Samsung Galaxy S8 */
+
+@media (max-width: 360px) {
+    .pagina {
+        width: 360px;
+        height: 740px;
+    }
+
+    .menu {
+        position: absolute;
+        top: 530px;
+        left: 20px;
+        width: 90%;
+        height: 740px;
+    }
+
+    .faixa-giants {
+        top: 458px;
+    }
+
+    .faixa-giants2 {
+        top: 1238px;
+    }
+}
+
