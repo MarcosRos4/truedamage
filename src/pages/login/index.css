@@ -1,14 +1,17 @@
 
 body{
     overflow: hidden;
-
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
 }
 
 body > img{
-    height: 100vh;
+    height: 100%;
     position: absolute;
     left: 13.5%;
     z-index: 0;
+    
 }
 
 .form-div{
@@ -41,9 +44,14 @@ body > img{
 
 input{
     height: 70px;
-    width: 215%;
+    width: 160%;
     border-radius: 10px;
     text-align: center;
+}
+
+.continue-div > input{
+    background-color: rgba(0, 255, 183, 0.888);
+    border-color: aquamarine;
 }
 
 .logo{
@@ -53,3 +61,90 @@ input{
 .giants{
     height: 5%;
 }
+
+.icon-wrapper{
+    position: relative;
+    bottom: 27%;
+    color: black;
+    pointer-events: none;
+}
+
+
+@media (max-width: 820px) {
+    
+    body > img{
+        height: 81%;
+        left: -665px;
+    }
+
+    .form-div{
+        background-color: rgba(0, 0, 0, 0.857);
+        left: 5%;
+        top: 10%;
+        height: 60%;
+        width: 70%;
+        border-radius: 50px;
+    }
+
+    input{
+        width: 110%;
+    }
+
+    .icon-wrapper{
+        bottom: 24%;
+    }
+
+}
+
+@media (max-width: 414px){
+    
+    body > img {
+        visibility: hidden;
+    }
+
+    .form-div {
+        background-color: rgb(0, 0, 0);
+        top: 0px;
+        left:0px;
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
+    }
+
+    .form > input{
+        width: 80%;
+    }
+
+    .icon-wrapper {
+        bottom: 23%;
+    }
+
+    .logo{
+        height: 8%;
+    }
+}
+
+
+@media (max-width: 360px) {
+    body {
+        font-size: 1em;
+    }
+
+    .form-div {
+        width: 72%;
+        height: 71.5%;
+    }
+
+    input{
+        height: 40px;
+    }
+
+    .icon-wrapper {
+        bottom: 23%;
+    }
+}
+
+
+
+
+
