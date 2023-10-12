@@ -73,14 +73,14 @@ input{
 @media (max-width: 820px) {
     
     body > img{
-        height: 81%;
-        left: -665px;
+        height: 100%;
+        left: -800px;
     }
 
     .form-div{
         background-color: rgba(0, 0, 0, 0.857);
-        left: 5%;
-        top: 10%;
+        left: 15%;
+        top: 20%;
         height: 60%;
         width: 70%;
         border-radius: 50px;
