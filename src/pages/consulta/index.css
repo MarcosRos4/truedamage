@@ -1,24 +1,25 @@
 body {
-    width: 1920px;
-    height: 1080px;
-    background-color: black;
+    background-color: #080a10;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    font-style: normal;
+    line-height: normal;
 }
 
-.pagina {
-    width: 1920px;
-    display: flex;
-    justify-content: center;
-}
+
 
 .menu {    
-    /* width: 1065px; */
-    width: 60.4%;
-    height: 781.314px;
+    position: absolute;
+    top: 14%;
+    left: 31%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,17 +29,9 @@ body {
 
 .pesquisa {
     width: 100%;
-    height: 53.214px;
-    border-radius: 17px;
+    height: 50px;
+    border-radius: 15px;
     border: 3px solid #9224FF;
-    
-    color: #FFF;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 2em;
-    font-style: normal;
-    line-height: normal;
 }
 
 
@@ -54,11 +47,6 @@ body {
     border-radius: 17px;
     border: 3px solid #9224FF;
 
-    color: #FFF;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 2em;
 }
 
 .tabela-eventos{
@@ -77,51 +65,30 @@ body {
 
 .evento {
     width: 100%;
-    height: 125.06px;
-
+    height: 125px;
 
     border-radius: 29px;
     background: rgba(0, 255, 183, 0.66);
-
-    color: #FFF;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 2em;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-#cadastrar{
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 3em;
-}
 
-#quiana {
+
+.quiana {
     position: absolute;
-    top: 100px;
+    top: 25%;
     left: 0px;
-    width: 538.532px;
-    height: 446.204px;
-    transform: rotate(93.547deg);
-
-    border-radius: 213px;
-    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+    opacity: 0.7;
 }
 
-#akali {
+.akali {
     position: absolute;
-    top: 100px;
-    left: 1200px;
-    width: 538.218px;
-    height: 396.521px;
-    transform: rotate(90deg);
-
-    border-radius: 198.261px;
-    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+    top: 25%;
+    left: 75%;
+    opacity: 0.7;
 }
 
 .faixa-giants {
