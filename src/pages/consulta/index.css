@@ -49,7 +49,7 @@ body {
 
 }
 
-.tabela-eventos{
+.tabela-eventos-div {
     width: 100%;
     height: 655.459px;
 
@@ -61,6 +61,26 @@ body {
     justify-content: start;
     align-items: center;
     gap: 20px;
+}
+
+.tabela-eventos {
+    display: flow-root;
+    font-size: 0.8em;
+    border-radius: 20px;
+    gap: 15px;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+tr:hover {
+    background-color: #9a35ff73;
+}
+
+th{
+    font-size: 1.5em;
 }
 
 .evento {
