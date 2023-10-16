@@ -1,0 +1,189 @@
+body{
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    background-color: black;
+    color: white;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 60px;
+    padding-bottom: 40px;
+    border-bottom: #4D0E7E solid 5px;
+   
+}
+
+.logo-div-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links-div-header{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.links-div-header > input {
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: #12E0A7;
+}
+
+.shows-link:visited, .shows-link:link{
+    text-decoration: none;
+    color: white;
+}
+
+.shows-link:hover{
+    color: #4D0E7E;
+}
+
+.contatos-link:visited, .contatos-link{
+    text-decoration: none;
+    color: #12E0A7;
+}
+
+.contatos-link:hover{
+    color: #4D0E7E;
+}
+
+.centro{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    top: 35px;
+    left: 770px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo-centro-faixa1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.true-damage-logo-centro{
+    width: 70%;
+}
+
+.giants-logo-centro{
+    height: 8vh;
+}
+
+.botao-centro-faixa1 {
+    background-color: #ffffff;
+    border-radius: 25px;
+    border-style: none;
+    height: 40px;
+    width: 340px;
+}
+
+.botao-centro-faixa1:hover{
+    background-color: #12E0A7;
+}
+
+.faixa2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.logo-faixa2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-faixa2 > img{
+    height: 50px;
+}
+
+.logo-faixa2 > h2{
+    color: #12E0A7;
+}
+
+input{
+    font-weight: 700;
+}
+
+.tabdiv-faixa2{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.tabela-tabdiv-faixa2{
+    width: 60%;
+    text-align: right;
+    
+}
+
+.tabela-tabdiv-faixa2 > tbody > tr > td{
+    border-bottom: #ffffff solid 1px;
+}
+
+.tabela-tabdiv-faixa2 > tbody > tr > td > input{
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: #12E0A7;
+}
+
+.tabela-tabdiv-faixa2 > tbody > tr > td > input:hover{
+    background-color: #7c2db9;
+}
+
+.socials-footer{
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: #4D0E7E solid;
+}
+
+.socials-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+.socials-div > a{
+    color: #4D0E7E;
+}
+
+.socials-div > a:hover{
+    color: #fff;
+}
+
+.contato-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+}
+
+.contato-div > a:hover{
+    color: white;
+}
+
+.trademark-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
