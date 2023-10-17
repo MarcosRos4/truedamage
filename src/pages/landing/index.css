@@ -1,4 +1,5 @@
 body{
+    
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
@@ -36,7 +37,12 @@ header{
     background-color: #12E0A7;
 }
 
-.shows-link:visited, .shows-link:link{
+.links-div-header > input:hover{
+    background-color: #7c2db9;
+    border-color: #4D0E7E;
+}
+
+.shows-link:visited, .shows-link{
     text-decoration: none;
     color: white;
 }
@@ -54,21 +60,36 @@ header{
     color: #4D0E7E;
 }
 
+.faixa1{
+    height: 815px;
+}
+
 .centro{
+
     display: flex;
     flex-direction: column;
-    height: 100%;
+    
     position: absolute;
-    top: 35px;
-    left: 770px;
-    justify-content: space-evenly;
+    height: 815px;
+    top: 120px;
+    left: 700px;
+    justify-content: space-around;
     align-items: center;
+}
+
+.centro > i {
+    position: absolute;
+    top: 637px;
+    left: 370px;
+    color: black;
+    pointer-events: none;
 }
 
 .logo-centro-faixa1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .true-damage-logo-centro{
@@ -84,7 +105,9 @@ header{
     border-radius: 25px;
     border-style: none;
     height: 40px;
-    width: 340px;
+    width: 440px;
+    padding-left: 40px;
+    text-align: justify;
 }
 
 .botao-centro-faixa1:hover{
@@ -94,7 +117,6 @@ header{
 .faixa2 {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 60px;
 }
 
@@ -145,6 +167,10 @@ input{
     background-color: #7c2db9;
 }
 
+footer{
+    height: fit-content;
+}
+
 .socials-footer{
     margin-top: 120px;
     display: flex;
@@ -164,6 +190,7 @@ input{
 
 .socials-div > a{
     color: #4D0E7E;
+    text-decoration: none;
 }
 
 .socials-div > a:hover{
@@ -186,4 +213,137 @@ input{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width:820px) {
+
+    body{
+        width: 820px;
+    }
+
+    .links-div-header{
+        gap: 10px;
+    }
+
+    .faixa1 {
+        height: fit-content;
+    }
+
+    .faixa1 > picture > img {
+        width: 820px;
+        height: 1000px;
+    }
+
+    .centro {
+        height: 815px;
+        top: 340px;
+        left: 180px;
+    }
+
+    .centro > i{
+        top: 646px;
+        left: 390px;
+    }
+
+    .faixa2 {
+        margin-top: 105px;
+        padding-bottom: 105px;
+    }
+
+    .tabela-tabdiv-faixa2{
+        text-align: center;
+    }
+    
+    .socials-footer{
+        margin-top: 0px;
+    }
+
+    .socials-div{
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    
+}
+
+@media (max-width:414px) {
+
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .logo-div-header{
+        width: 414px;
+        
+    }
+
+    .links-div-header{
+        font-size: 0.8em;
+        width: 414px;
+        justify-content: center;
+    }
+
+    .links-div-header > input{
+        width: 100px;
+        height: 40px;
+    }
+
+    .faixa1 > picture > img {
+        width: 414px;
+        height: auto;
+    
+    }
+
+    .centro{
+        height: 353px;
+        width: 414px;
+        top: 179px;
+        left: 0px;
+    }
+
+    .true-damage-logo-centro{
+        visibility: hidden;
+    }
+
+    .giants-logo-centro{
+        position: absolute;
+        top: 100px
+    }
+
+    .botao-centro-faixa1{
+        position: absolute;
+        top: 565px;
+        font-size: 0.8em;
+        width: 340px;
+    }
+
+    .faixa2{
+        margin-top: 0px;
+        padding-bottom: 100px;
+    }
+
+    .logo-faixa2{
+        width: 414px;
+    }
+
+    .tabdiv-faixa2{
+        width: 414px;
+        font-size: 0.7em;
+    }
+
+    .socials-footer{
+        width: 414px;
+    }
+
+    .contato-div{
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 40px;
+    }
+
+    .trademark-footer{
+        width: 414px;
+    }
 }
