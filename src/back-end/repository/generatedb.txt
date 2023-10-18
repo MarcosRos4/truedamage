@@ -36,9 +36,8 @@ CREATE TABLE IF NOT EXISTS `truedamage`.`eventos` (
   `nome` VARCHAR(45) NULL,
   `espaco` VARCHAR(45) NULL,
   `endereco` VARCHAR(45) NULL,
-  `eventoscol` VARCHAR(45) NULL,
   `cep` VARCHAR(45) NULL,
-  `capacidade maxima` VARCHAR(45) NULL,
+  `capacidademaxima` VARCHAR(45) NULL,
   `data` DATE NULL,
   `horario` VARCHAR(15) NULL,
   PRIMARY KEY (`ideventos`))
