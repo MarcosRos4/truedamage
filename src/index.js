@@ -1,9 +1,10 @@
 import 'dotenv/config';
 import express, { request, response } from "express";
 import cors from 'cors';
-import eventoController from '../src/controller/eventoController'
+import eventoController from './controller/eventoController.js'
 
 const servidor = express();
+
 servidor.use(express.json());
 servidor.use(cors())
 

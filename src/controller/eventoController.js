@@ -1,4 +1,4 @@
-import { buscarPorNome, listar, remover, salvar } from "../repository/eventoRepository.js";
+import { listar } from "../repository/eventoRepository.js";
 
 import { Router } from "express";
 

@@ -16,7 +16,14 @@
     "mysql2": "^3.6.2",
     "nodemon": "^3.0.1"
   },
-  "devDependencies": {},
   "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcosRos4/MarcosRos4.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MarcosRos4/MarcosRos4.github.io/issues"
+  },
+  "homepage": "https://github.com/MarcosRos4/MarcosRos4.github.io#readme",
   "description": ""
 }
