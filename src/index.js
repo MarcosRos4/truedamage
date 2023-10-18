@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express, { request, response } from "express";
 import cors from 'cors';
-import eventoController from './controller/eventoController.js'
+import eventoController from './back-end/controller/eventoController.js'
 
 const servidor = express();
 
