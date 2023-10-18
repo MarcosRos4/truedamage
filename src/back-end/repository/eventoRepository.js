@@ -2,35 +2,82 @@ import { connection } from "./connection.js";
 
 
 export async function listarTodos() {
-  const comando = `
-     SELECT *
-       FROM evento
+  const comando =
+  `
+    SELECT nome, espaco, endereco, cep, capacidademaxima, data, horario
+    FROM evento
   `
   const [linhas] = await connection.query(comando);
   return linhas;
 }
 
-export async function salvar(evento) {
-  const comando = `
-      INSERT INTO eventos (nome, espaco, endereco,
-      cep, capacidademaxima, data, horario)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+export async function criar(evento) {
+  const comando =
   `
-
+    INSERT INTO eventos (nome, espaco, endereco, cep, capacidademaxima, data, horario)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `
   const [info] = await connection.query(comando,
   [evento.nome, evento.espaco, evento.endereco, evento.cep, evento.capacidademaxima])
   evento.id = info.insertId;
-  
   return evento;
 }
 
+export async function atualizar(evento) {
+  const comando =
+  `
+    UPDATE eventos 
+    SET nome = ?, espaco = ?, endereco = ?, cep = ?,
+    capacidademaxima = ?, data = ?, horario = ?
+    WHERE ideventos like ?
+  `
+  const [info] = await connection.query(comando,
+  [
+    evento.nome, evento.espaco, evento.endereco, evento.cep, evento.capacidademaxima,
+    evento.data, evento.horario,  evento.ideventos
+  ])
+  return info;
+}
+
 export async function buscarPorNome(nome) {
-  const comando = `
+  const comando = 
+  `
     SELECT nome, espaco, endereco, cep, capacidademaxima, data, horario
-    FROM tb_filme
+    FROM eventos
     WHERE nome like ?
   `
-
   const [linhas] = await connection.query(comando, ['%'+nome+'%']);
+  return linhas;
+}
+
+export async function buscarPorData(data) {
+  const comando = 
+  `
+    SELECT nome, espaco, endereco, cep, capacidademaxima, data, horario
+    FROM eventos
+    WHERE nome like ?
+  `
+  const [linhas] = await connection.query(comando, ['%'+data+'%']);
+  return linhas;
+}
+
+export async function buscarPorCep(cep) {
+  const comando = 
+  `
+    SELECT nome, espaco, endereco, cep, capacidademaxima, data, horario
+    FROM eventos
+    WHERE nome like ?
+  `
+  const [linhas] = await connection.query(comando, ['%'+cep+'%']);
+  return linhas;
+}
+
+export async function excluir(ideventos) {
+  const comando = 
+  `
+    DELETE *
+    WHERE ideventos like ?
+  `
+  const [linhas] = await connection.query(comando, ['%'+ideventos+'%']);
   return linhas;
 }
