@@ -37,8 +37,7 @@ CREATE TABLE IF NOT EXISTS `truedamage`.`eventos` (
   `espaco` VARCHAR(45) NULL,
   `endereco` VARCHAR(45) NULL,
   `cep` VARCHAR(45) NULL,
-  `capacidademaxima` VARCHAR(45) NULL,
-  `data` DATE NULL,
+  `data` VARCHAR(15) NULL,
   `horario` VARCHAR(15) NULL,
   PRIMARY KEY (`ideventos`))
 ENGINE = InnoDB;

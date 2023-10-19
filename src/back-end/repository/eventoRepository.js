@@ -5,7 +5,7 @@ export async function listarTodos() {
   const comando =
   `
     SELECT nome, espaco, endereco, cep, capacidademaxima, data, horario
-    FROM evento
+    FROM eventos
   `
   const [linhas] = await connection.query(comando);
   return linhas;
@@ -14,11 +14,11 @@ export async function listarTodos() {
 export async function criar(evento) {
   const comando =
   `
-    INSERT INTO eventos (nome, espaco, endereco, cep, capacidademaxima, data, horario)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO eventos (nome, espaco, endereco, cep, data, horario)
+    VALUES (?, ?, ?, ?, ?, ?)
   `
   const [info] = await connection.query(comando,
-  [evento.nome, evento.espaco, evento.endereco, evento.cep, evento.capacidademaxima])
+  [evento.nome, evento.espaco, evento.endereco, evento.cep, evento.data, evento.horario])
   evento.id = info.insertId;
   return evento;
 }
@@ -55,7 +55,7 @@ export async function buscarPorData(data) {
   `
     SELECT nome, espaco, endereco, cep, capacidademaxima, data, horario
     FROM eventos
-    WHERE nome like ?
+    WHERE data like ?
   `
   const [linhas] = await connection.query(comando, ['%'+data+'%']);
   return linhas;
@@ -66,7 +66,7 @@ export async function buscarPorCep(cep) {
   `
     SELECT nome, espaco, endereco, cep, capacidademaxima, data, horario
     FROM eventos
-    WHERE nome like ?
+    WHERE cep like ?
   `
   const [linhas] = await connection.query(comando, ['%'+cep+'%']);
   return linhas;
@@ -75,9 +75,8 @@ export async function buscarPorCep(cep) {
 export async function excluir(ideventos) {
   const comando = 
   `
-    DELETE *
-    WHERE ideventos like ?
+    DELETE from eventos  WHERE ideventos like ?
   `
-  const [linhas] = await connection.query(comando, ['%'+ideventos+'%']);
-  return linhas;
+  const [linhas] = await connection.query(comando, ideventos);
+  return linhas.affectedRows;
 }
