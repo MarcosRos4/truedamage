@@ -31,7 +31,7 @@ export async function atualizar(usuario) {
   `
   const [info] = await connection.query(comando,
   [
-    usuario.nome, usuario.espaco, usuario.idusuarios
+    usuario.email, usuario.senha, usuario.id
   ])
   return info;
 }

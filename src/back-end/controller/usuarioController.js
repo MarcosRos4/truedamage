@@ -84,6 +84,7 @@ endpoints.put('/usuarios/atualizar/:id', async (req, resp) =>{
         }
 
         let usuario = req.body
+        usuario.id = id
 
         let r = await atualizar(usuario)
         resp.send(r)
