@@ -1,16 +1,29 @@
-import 'dotenv/config';
-import express, { request, response } from "express";
-import cors from 'cors';
-import eventoController from './back-end/controller/eventoController.js'
-import usuarioController from './back-end/controller/usuarioController.js'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Landing from './landing/Landing';
+import Cadastro from './cadastro/Cadastro';
+import Consulta from './consulta/Consulta';
+import Login from './login/Login';
+import SemRota from './semrota/SemRota';
 
-const servidor = express();
 
-servidor.use(express.json());
-servidor.use(cors())
 
-servidor.use(usuarioController)
-servidor.use(eventoController)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        
+        <Route path='/' element={<Landing />} />
+        <Route path='/cadastro' element={<Cadastro />} />
+        <Route path='/consulta' element={<Consulta />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/*' element={<SemRota />} />
+        
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+);
 
-const port = process.env.PORT
-servidor.listen(port, () => console.log(`API subiu na porta ${port}!`));
