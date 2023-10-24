@@ -1,12 +1,12 @@
 
-body{
-    overflow: hidden;
+.Login {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1.5em;
+    overflow-x: hidden;
 }
 
-body > img{
+.Login > img{
     height: 100%;
     position: absolute;
     left: 13.5%;
@@ -25,6 +25,7 @@ body > img{
     height: 100%;
     width: 40%;
     z-index: 1;
+    left: 0px;
 }
 
 .form{
