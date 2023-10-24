@@ -100,7 +100,7 @@ export default function Landing() {
                 <a href=""><i class="fa-brands fa-youtube fa-2xl"></i>  @TRUEDAMAGE</a>
             </div>
             <div class="contato-div">
-                <h5>Contato Proficional: </h5>
+                <h5>Contato Profissional: </h5>
                 <a href="">contato@truedamagebanda.com</a>
             </div>
         </div>
