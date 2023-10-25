@@ -13,10 +13,10 @@ export default function Login(){
                 <img class="giants" src={faixagiants} alt="Faixa Giants"></img>
                 <img class="logo" src={truedamagelogo} alt="True Damage Logo"></img>
                 <form class="form" action="">
-                    <input type="text" placeholder="Usuário"></input>
-                    <input type="password" name="senha" id="senha-input" placeholder="Senha"></input>
+                    <input class="dados" type="text" placeholder="Usuário"></input>
+                    <input class="dados" type="password" name="senha" id="senha-input" placeholder="Senha"></input>
                     <div class="continue-div">
-                        <input type="button"></input>
+                        <input class="enter" type="button"></input>
                         <span class="icon-wrapper">
                             <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
                         </span>

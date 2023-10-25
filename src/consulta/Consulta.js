@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom"
 import './Consulta.scss'
+import quianabola from "../images/quiana bola.png";
+import faixagiants from "../images/faixa giants.png"
+import akalibola from "../images/akali bola.png";
 
 export default function Consulta(){
     return(
@@ -8,9 +11,9 @@ export default function Consulta(){
         <Link to='/cadastro'>Cadastro</Link>
         <Link to='/'>Inicio</Link>
     </nav>
-    <img src="../../assets/imagens/akali bola.png" alt="akali bola"></img>
-        <img src="../../assets/imagens/quiana bola.png" alt="`quiana bola"></img>
-        <img src="../../assets/imagens/faixa giants.png" class="faixa-giants" alt="faixa giants"></img>
+    <img src={akalibola} class="akali" alt="akali bola"></img>
+    <img src={quianabola} class="quiana" alt="`quiana bola"></img>
+    <img src={faixagiants} class="faixa-giants" alt="faixa giants"></img>
         <div name="`wrapper">
             <div class="menu">
                 <div class="pesquisa">
@@ -78,7 +81,7 @@ export default function Consulta(){
                 </div>
             </div>
         </div>
-        <img src="../../assets/imagens/faixa giants.png" class="`faixa-giants2" alt="faixa giants"></img>
+        <img src={faixagiants} class="faixa-giants2" alt="faixa giants"></img>
     </div>
     );
 }

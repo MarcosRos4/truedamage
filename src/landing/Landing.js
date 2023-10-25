@@ -3,6 +3,8 @@ import './Landing.scss';
 import truedamagelogo from "../images/true damage logo.png";
 import bandatruedamageescada from "../images/banda true damage escada.png"
 import giantslogo from "../images/giants logo.png";
+import ekkocartoon from "../images/ekko-cartoon.png"
+import quarteto from "../images/quarteto.jpg"
 
 
 export default function Landing() {
@@ -21,8 +23,8 @@ export default function Landing() {
     </header>
     <div class="faixa1">
         <picture>
-            <source media="(max-width:414px)" srcset="../../assets/imagens/ekko-cartoon.png"></source>
-            <source media="(max-width:820px)"  srcset="../../assets/imagens/quarteto.jpg"></source>
+            <source media="(max-width:414px)" srcset={ekkocartoon}></source>
+            <source media="(max-width:820px)"  srcset={quarteto}></source>
             <img src={bandatruedamageescada} alt="banda true damage"></img>
         </picture>
         <div class="centro">
