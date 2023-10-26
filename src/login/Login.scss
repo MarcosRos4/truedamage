@@ -57,11 +57,15 @@
     text-align: center;
 }
 
-.continue-div > input{
+.continue-div > button{
     background-color: rgba(0, 255, 183, 0.888);
     border-color: aquamarine;
 }
 
+.continue-div > button > a{
+    text-decoration: none;
+    color: black;
+}
 .logo{
     height: 10%;
 }

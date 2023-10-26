@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+
 import './Login.scss'
 import faixagiants from "../images/faixa giants.png"
 import truedamagelogo from "../images/true damage logo.png"
@@ -16,7 +16,7 @@ export default function Login(){
                     <input class="dados" type="text" placeholder="Usuário"></input>
                     <input class="dados" type="password" name="senha" id="senha-input" placeholder="Senha"></input>
                     <div class="continue-div">
-                        <input class="enter" type="button"></input>
+                        <button class="enter" type="submit"><a href='/consulta'>ENTRAR</a></button>
                         <span class="icon-wrapper">
                             <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
                         </span>

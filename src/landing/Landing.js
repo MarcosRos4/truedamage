@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import './Landing.scss';
 import truedamagelogo from "../images/true damage logo.png";
 import bandatruedamageescada from "../images/banda true damage escada.png"
@@ -16,9 +16,9 @@ export default function Landing() {
             <img src={truedamagelogo} alt="true damage logo"></img>
         </div>
         <div class="links-div-header">
-            <a href="" class="shows-link">SHOWS</a>
+            <a href="/login" class="shows-link">SHOWS</a>
             <a href="" class="contatos-link">CONTATOS</a>
-            <input type="button" value="LOGIN"></input>
+            <button type='submit' ><a className='login-a' href='/login'>LOGIN</a></button>
         </div>
     </header>
     <div class="faixa1">

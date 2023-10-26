@@ -24,7 +24,7 @@ export default function Cadastro(){
 					<input type="text" placeholder="  Data" required="true"></input>
 					<input type="text" placeholder="  Horário" required="true"></input>
 					<div>
-						<input type="button" value="Voltar"></input>
+						<button type="submit"><a href="/consulta">Voltar</a></button>
 						<input type="button" value="Limpar"></input>
 						<input type="submit" value="Cadastrar"></input>
 					</div>

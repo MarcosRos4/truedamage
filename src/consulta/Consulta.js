@@ -7,10 +7,6 @@ import akalibola from "../images/akali bola.png";
 export default function Consulta(){
     return(
     <div className="Consulta">
-    <nav>
-        <Link to='/cadastro'>Cadastro</Link>
-        <Link to='/'>Inicio</Link>
-    </nav>
     <img src={akalibola} class="akali" alt="akali bola"></img>
     <img src={quianabola} class="quiana" alt="`quiana bola"></img>
     <img src={faixagiants} class="faixa-giants" alt="faixa giants"></img>
@@ -77,7 +73,8 @@ export default function Consulta(){
                             </tr>
                         </tbody>
                     </table>                    
-                    <button class="evento">Cadastrar Novo Evento</button>
+                    <button class="evento"><a href="/cadastro">Cadastrar Novo Evento</a></button>
+                    <button class="evento"><a href="/">SAIR</a></button>
                 </div>
             </div>
         </div>

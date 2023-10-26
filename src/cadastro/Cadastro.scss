@@ -49,6 +49,25 @@
       height: 61px;
       text-align: center;
    }
+
+   .formulario > div > button{
+      background: rgba(0, 255, 183, 0.66);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 2em;
+      border-radius: 19px;
+      width: 80%;
+      height: 61px;
+      text-align: center;
+   }
+
+   .formulario > div > button > a{
+      text-decoration: none;
+      color: white;
+   }
+
+
    
    .formulario > div{
       display: flex;
