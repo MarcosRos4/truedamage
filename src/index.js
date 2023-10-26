@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Landing from './landing/Landing';
-import Cadastro from './cadastro/Cadastro';
-import Consulta from './consulta/Consulta';
-import Login from './login/Login';
-import SemRota from './semrota/SemRota';
+import Landing from './landing/Landing.js';
+import Cadastro from './cadastro/Cadastro.js';
+import Consulta from './consulta/Consulta.js';
+import Login from './login/Login.js'
+import SemRota from './semrota/SemRota.js'
 
 
 

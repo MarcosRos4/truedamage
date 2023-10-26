@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import './Cadastro.scss'
+import './Cadastro.scss';
+import faixagiants from "../images/faixa giants.png"
+import muitosekkos from "../images/muitos ekkos.png"
 
 export default function Cadastro(){
 	return(
@@ -8,9 +10,9 @@ export default function Cadastro(){
 				<Link to='/'>Inicio</Link>
 				<Link to='/consulta'></Link>
 			</nav>
-			<img src="../../public/assets/imagens/faixa giants.png" class="faixa-giants" alt="Faixa Giants"></img>
-   			<img src="../../public/assets/imagens/faixa giants.png" class="faixa-giants2" alt="Faixa Giants"></img>
-			<img src="../../public/assets/imagens/muitos ekkos.png" class="muitos-ekko" alt="muitos-ekko"></img>
+			<img src={faixagiants} class="faixa-giants" alt="Faixa Giants"></img>
+   			<img src={faixagiants} class="faixa-giants2" alt="Faixa Giants"></img>
+			<img src={muitosekkos} class="muitos-ekko" alt="muitos-ekko"></img>
    			<div class="group-10">
 				<form class="formulario">
 					<label>Cadastro de Evento</label>

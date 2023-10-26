@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
 import './Landing.scss';
+import truedamagelogo from "../images/true damage logo.png";
+import bandatruedamageescada from "../images/banda true damage escada.png"
+import giantslogo from "../images/giants logo.png";
+import ekkocartoon from "../images/ekko-cartoon.png"
+import quarteto from "../images/quarteto.jpg"
+
 
 export default function Landing() {
   
   return (
     <div className="Landing">
-      <h1>ESSA É A LANDING PAGE</h1>
-      <nav>
-        <Link to='/cadastro'>Cadastro</Link>
-        <Link to='/consulta'>Consulta</Link>
-        <Link to='/login'>Login</Link>
-      </nav>
           <header>
         <div class="logo-div-header">
-            <img src="../../assets/imagens/true damage logo.png" alt="true damage logo"></img>
+            <img src={truedamagelogo} alt="true damage logo"></img>
         </div>
         <div class="links-div-header">
             <a href="" class="shows-link">SHOWS</a>
@@ -23,14 +23,14 @@ export default function Landing() {
     </header>
     <div class="faixa1">
         <picture>
-            <source media="(max-width:414px)" srcset="../../assets/imagens/ekko-cartoon.png"></source>
-            <source media="(max-width:820px)"  srcset="../../assets/imagens/quarteto.jpg"></source>
-            <img src="../../assets/imagens/banda true damage escada.png" alt="banda true damage"></img>
+            <source media="(max-width:414px)" srcset={ekkocartoon}></source>
+            <source media="(max-width:820px)"  srcset={quarteto}></source>
+            <img src={bandatruedamageescada} alt="banda true damage"></img>
         </picture>
         <div class="centro">
             <div class="logo-centro-faixa1">
-                <img class="true-damage-logo-centro" src="../../assets/imagens/true damage logo.png" alt="true damage logo"></img>
-                <img class="giants-logo-centro" src="../../assets/imagens/giants logo.png" alt="giants logo"></img>
+                <img class="true-damage-logo-centro" src={truedamagelogo} alt="true damage logo"></img>
+                <img class="giants-logo-centro" src={giantslogo} alt="giants logo"></img>
             </div>
             <input class="botao-centro-faixa1" type="button" value="CONFIRA NOSSA AGENDA"></input>
             <i class="fa-solid fa-chevron-down fa-xl"></i>
@@ -39,7 +39,7 @@ export default function Landing() {
     </div>
     <div class="faixa2">
         <div class="logo-faixa2">
-            <img src="../../assets/imagens/giants logo.png" alt="logo giants"></img>
+            <img src={giantslogo} alt="logo giants"></img>
             <h2>VENDAS ABERTAS</h2>
         </div>
         <div class="tabdiv-faixa2">
@@ -102,7 +102,7 @@ export default function Landing() {
                 <a href=""><i class="fa-brands fa-youtube fa-2xl"></i>  @TRUEDAMAGE</a>
             </div>
             <div class="contato-div">
-                <h5>Contato Proficional: </h5>
+                <h5>Contato Profissional: </h5>
                 <a href="">contato@truedamagebanda.com</a>
             </div>
         </div>
