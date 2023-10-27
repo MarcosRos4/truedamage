@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import './Consulta.scss'
 import quianabola from "../images/quiana bola.png";
 import faixagiants from "../images/faixa giants.png"

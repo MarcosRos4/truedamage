@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import './Cadastro.scss';
 import faixagiants from "../images/faixa giants.png"
 import muitosekkos from "../images/muitos ekkos.png"
@@ -6,10 +5,6 @@ import muitosekkos from "../images/muitos ekkos.png"
 export default function Cadastro(){
 	return(
 		<div className="Cadastro">
-			<nav>
-				<Link to='/'>Inicio</Link>
-				<Link to='/consulta'></Link>
-			</nav>
 			<img src={faixagiants} class="faixa-giants" alt="Faixa Giants"></img>
    			<img src={faixagiants} class="faixa-giants2" alt="Faixa Giants"></img>
 			<img src={muitosekkos} class="muitos-ekko" alt="muitos-ekko"></img>

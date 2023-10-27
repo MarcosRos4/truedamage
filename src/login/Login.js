@@ -10,9 +10,9 @@ export default function Login(){
         <div className="Login">        
             <img src={truedamagegravacao} alt="Gravação True Damage"></img>
             <div class="form-div">
-                <img class="giants" src={faixagiants} alt="Faixa Giants"></img>
-                <img class="logo" src={truedamagelogo} alt="True Damage Logo"></img>
+                <img class="giants1" src={faixagiants} alt="Faixa Giants"></img>
                 <form class="form" action="">
+                    <img class="logo" src={truedamagelogo} alt="True Damage Logo"></img>
                     <input class="dados" type="text" placeholder="Usuário"></input>
                     <input class="dados" type="password" name="senha" id="senha-input" placeholder="Senha"></input>
                     <div class="continue-div">
@@ -20,10 +20,10 @@ export default function Login(){
                         <span class="icon-wrapper">
                             <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
                         </span>
-                        <h4>Admin Center</h4>
+                        <div>Admin Center</div>
                     </div>
                 </form>
-                <img class="giants" src={faixagiants} alt="Faixa Giants"></img>
+                <img class="giants2" src={faixagiants} alt="Faixa Giants"></img>
             </div>
         </div>
     );
