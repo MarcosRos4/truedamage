@@ -1,0 +1,26 @@
+.ConfiraDiv{    
+    
+
+    :hover{
+        background-color: #12E0A7;
+    }
+
+    button{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        border-radius: 25px;
+        border-style: none;
+        height: 40px;
+        width: 400px;
+        padding-left: 40px;
+        padding-right: 40px;
+        text-align: justify;
+    }
+
+    .seta{
+        color: black;
+    }
+    
+}

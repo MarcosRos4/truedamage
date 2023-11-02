@@ -8,8 +8,6 @@ import Consulta from './consulta/Consulta.js';
 import Login from './login/Login.js'
 import SemRota from './semrota/SemRota.js'
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

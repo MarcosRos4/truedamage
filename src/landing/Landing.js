@@ -5,7 +5,11 @@ import bandatruedamageescada from "../images/banda true damage escada.png"
 import giantslogo from "../images/giants logo.png";
 import ekkocartoon from "../images/ekko-cartoon.png"
 import quarteto from "../images/quarteto.jpg"
-
+import ConfiraAgendaBtn from '../components/ConfereButton/ConfiraAgendaBtn.js';
+import Evento from '../components/Evento/Evento.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faTiktok, faTwitterSquare, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 export default function Landing() {
   
@@ -16,9 +20,10 @@ export default function Landing() {
             <img src={truedamagelogo} alt="true damage logo"></img>
         </div>
         <div class="links-div-header">
-            <a href="/login" class="shows-link">SHOWS</a>
-            <a href="" class="contatos-link">CONTATOS</a>
-            <button type='submit' ><a className='login-a' href='/login'>LOGIN</a></button>
+            <a class="shows-link">SHOWS</a>
+            <a href="/" class="contatos-link">CONTATOS</a>
+            <a className='login-a' href='/login'><button>LOGIN</button></a>
+            
         </div>
     </header>
     <div class="faixa1">
@@ -32,12 +37,11 @@ export default function Landing() {
                 <img class="true-damage-logo-centro" src={truedamagelogo} alt="true damage logo"></img>
                 <img class="giants-logo-centro" src={giantslogo} alt="giants logo"></img>
             </div>
-            <input class="botao-centro-faixa1" type="button" value="CONFIRA NOSSA AGENDA"></input>
-            <i class="fa-solid fa-chevron-down fa-xl"></i>
+            <ConfiraAgendaBtn targetElementId='faixa2'></ConfiraAgendaBtn>
             
         </div>
     </div>
-    <div class="faixa2">
+    <div class="faixa2" id='faixa2'>
         <div class="logo-faixa2">
             <img src={giantslogo} alt="logo giants"></img>
             <h2>VENDAS ABERTAS</h2>
@@ -46,44 +50,28 @@ export default function Landing() {
             <table class="tabela-tabdiv-faixa2">
                 <tbody>
                     <tr>
-                        <td>06/10</td>
-                        <td>Espaco Unimed</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                     <tr>
-                        <td>13/10</td>
-                        <td>Villa Country</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                     <tr>
-                        <td>14/10</td>
-                        <td>Memorial da América Latina</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                     <tr>
-                        <td>15/10</td>
-                        <td>Estádio Beira-Rio</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                     <tr>
-                        <td>17/10</td>
-                        <td>Sea Club Ilhabela</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                     <tr>
-                        <td>19/10</td>
-                        <td>Pier Mauá</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                     <tr>
-                        <td>20/10</td>
-                        <td>Quintal do Espeto Interlagos</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                     <tr>
-                        <td>23/10</td>
-                        <td>Audio</td>
-                        <td><input type="button" value="INGRESSOS"></input></td>
+                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
                     </tr>
                 </tbody>
             </table>
@@ -93,21 +81,21 @@ export default function Landing() {
         <div class="socials-footer">
             <div class="socials-div">
                 
-                <a href=""><i class="fa-brands fa-instagram fa-2xl"></i> @TRUEDAMAGE</a>
+                <a href="/"><FontAwesomeIcon icon={faInstagram} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
                 
-                <a href=""><i class="fa-brands fa-square-x-twitter fa-2xl"></i> @TRUEDAMAGE</a>
+                <a href="/"><FontAwesomeIcon icon={faTwitterSquare} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
                 
-                <a href=""><i class="fa-brands fa-tiktok fa-2xl"></i> @TRUEDAMAGE</a>
+                <a href="/"><FontAwesomeIcon icon={faTiktok} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
                 
-                <a href=""><i class="fa-brands fa-youtube fa-2xl"></i>  @TRUEDAMAGE</a>
+                <a href="/"><FontAwesomeIcon icon={faYoutube} size='2x'></FontAwesomeIcon>  @TRUEDAMAGE</a>
             </div>
             <div class="contato-div">
                 <h5>Contato Profissional: </h5>
-                <a href="">contato@truedamagebanda.com</a>
+                <a href="/">contato@truedamagebanda.com</a>
             </div>
         </div>
         <div class="trademark-footer">
-            <h6><i class="fa-regular fa-copyright fa-lg"></i> 2023 True Damage</h6>
+            <h6><FontAwesomeIcon icon={faCopyright}></FontAwesomeIcon> 2023 True Damage</h6>
         </div>
     </footer>
     </div>
