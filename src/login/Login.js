@@ -4,7 +4,7 @@ import faixagiants from "../images/faixa giants.png"
 import truedamagelogo from "../images/true damage logo.png"
 import truedamagegravacao from "../images/true damage gavacao.jpg"
 import truedamagegravacaotablet from "../images/true damage gavacao tablet.png"
-
+import LoginButton from '../components/LoginButton/LoginButton.js'
 
 export default function Login(){
     return(
@@ -18,15 +18,8 @@ export default function Login(){
                 <img class="giants1" src={faixagiants} alt="Faixa Giants"></img>
                 <form class="form" action="">
                     <img class="logo" src={truedamagelogo} alt="True Damage Logo"></img>
-                    <input class="dados" type="text" placeholder="Usuário"></input>
-                    <input class="dados" type="password" name="senha" id="senha-input" placeholder="Senha"></input>
-                    <div class="continue-div">
-                        <button class="enter" type="submit"><a href='/consulta'>ENTRAR</a></button>
-                        <span class="icon-wrapper">
-                            <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
-                        </span>
-                        <div>Admin Center</div>
-                    </div>
+                    
+                    <LoginButton></LoginButton>
                 </form>
                 <img class="giants2" src={faixagiants} alt="Faixa Giants"></img>
             </div>

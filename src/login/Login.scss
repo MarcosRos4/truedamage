@@ -61,51 +61,10 @@
             
         }
 
+
+    }
         
-    }
 
-    
-
-    .continue-div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        color: aliceblue;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .dados {
-        height: 55px;
-        width: 75%;
-        border-radius: 10px;
-        text-align: center;
-
-        @media (max-width:360px) {
-            height: 40px;
-        }
-    }
-
-    .enter {
-        height: 70px;
-        width: 75%;
-        border-radius: 10px;
-        text-align: center;
-        background-color: rgba(0, 255, 183, 0.888);
-        border-color: aquamarine;
-
-        @media (max-width:360px) {
-            height: 40px;
-            
-        }
-    }
-
-
-    .continue-div > button > a{
-        text-decoration: none;
-        color: black;
-    }
 
     .logo{
         height: 20%;
@@ -142,7 +101,7 @@
 .imgdesktop{
     height: 100%;
     position: absolute;
-    left: 13.5%;
+    left: 15.7%;
     z-index: 0;
 
     @media (max-width:820px) {
