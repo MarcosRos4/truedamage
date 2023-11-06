@@ -1,12 +1,20 @@
-
 import './Login.scss'
 import faixagiants from "../images/faixa giants.png"
 import truedamagelogo from "../images/true damage logo.png"
 import truedamagegravacao from "../images/true damage gavacao.jpg"
 import truedamagegravacaotablet from "../images/true damage gavacao tablet.png"
 import LoginButton from '../components/LoginButton/LoginButton.js'
+import useToken from './useToken.js'
+
+
 
 export default function Login(){
+    const {token, setToken} = useToken()
+
+    if(!token) {
+        return <LoginButton setToken={setToken} />
+      }
+
     return(
         <div className="Login">   
             
@@ -19,7 +27,7 @@ export default function Login(){
                 <form class="form" action="">
                     <img class="logo" src={truedamagelogo} alt="True Damage Logo"></img>
                     
-                    <LoginButton></LoginButton>
+                    <LoginButton setToken={setToken}></LoginButton>
                 </form>
                 <img class="giants2" src={faixagiants} alt="Faixa Giants"></img>
             </div>

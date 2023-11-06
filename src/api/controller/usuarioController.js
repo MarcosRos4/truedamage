@@ -4,6 +4,15 @@ import { Router } from "express";
 
 const endpoints = Router();
 
+
+/* criar token de login de usuario */
+endpoints.post('/login', async (req, resp) => {
+    resp.send({
+        token:"aaaaaaa"
+    })
+})
+
+
 /* criar usuario */
 endpoints.post('/usuarios/criar', async (req, resp) =>{
     try {
