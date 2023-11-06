@@ -22,7 +22,7 @@ export default function Landing() {
         <div class="links-div-header">
             <a class="shows-link">SHOWS</a>
             <a href="/" class="contatos-link">CONTATOS</a>
-            <a className='login-a' href='/login'><button>LOGIN</button></a>
+            <a className='login-a' href='/consulta'><button>LOGIN</button></a>
             
         </div>
     </header>
