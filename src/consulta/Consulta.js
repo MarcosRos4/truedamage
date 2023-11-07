@@ -7,12 +7,12 @@ import Login from '../login/Login.js';
 
 export default function Consulta(){
 
-    /*const {token, setToken} = useAuth()
+    const {token, setToken} = useAuth()
 
     if(!token) {
         return <Login setToken={setToken} />
       }
-    */
+    
     return(
     <div className="Consulta">
     <img src={akalibola} class="akali" alt="akali bola"></img>

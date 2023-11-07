@@ -17,7 +17,19 @@ export default function Login({setToken}){
     /*
     const [tokenteste, setTokenTeste] = useState(info)
     */
+
     async function loginUser(credentials) {
+        return fetch('http://localhost:8080/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(credentials)
+        })
+          .then(data => data.json())
+       }
+
+    async function autenticador(credentials) {
         return fetch(`http://localhost:2319/usuarios/buscarpemail/${credentials}`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
@@ -33,7 +45,9 @@ export default function Login({setToken}){
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser(email);
+        await autenticador(email);
+
+        const token = await loginUser({email, senha})
 
         if (email===info[0].emailusuarios && senha===info[0].senha) {
             alert("foi")
@@ -42,11 +56,8 @@ export default function Login({setToken}){
         else{
             alert("nao foi")
         }
-        /*   setToken(token)*/
+        setToken(token)
     }
-    /*
-    setToken(tokenteste)
-    */
     return(
         <div className="Login">   
             
@@ -72,4 +83,4 @@ export default function Login({setToken}){
     );
 }
 
-/*Login.propTypes = {setToken: PropTypes.func.isRequired}*/
+Login.propTypes = {setToken: PropTypes.func.isRequired}
