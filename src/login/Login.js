@@ -11,18 +11,19 @@ import React, {useState} from 'react'
 
 export default function Login({setToken}){
     
-    const [email, setEmail] = useState()
-    const [senha, setSenha] = useState()
-    const [info, setInfo] = useState("nada")
-    /*
-    const [tokenteste, setTokenTeste] = useState(info)
-    */
+    const [email, setEmail] = useState("email")
+    const [senha, setSenha] = useState("senha")
+    const [info, setInfo] = useState({
+        "emailusuarios":"",
+        "senha":""
+    })
 
     async function loginUser(credentials) {
-        return fetch('http://localhost:8080/login', {
+        return fetch('http://localhost:2319/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
+
           },
           body: JSON.stringify(credentials)
         })
@@ -37,26 +38,30 @@ export default function Login({setToken}){
         .then((resp) => resp.json())
         .then((data) => {
             setInfo(data)
-            console.log(info)
-            /*setTokenTeste(data)*/
+            return data       
         })
-        .catch((err)=> {console.log(err.message)})
+        .catch((err)=> {
+
+            console.log(err.message())})
     }
 
     const handleSubmit = async e => {
         e.preventDefault();
-        await autenticador(email);
+        const autenticacao = await autenticador(email);
 
         const token = await loginUser({email, senha})
 
-        if (email===info[0].emailusuarios && senha===info[0].senha) {
-            alert("foi")
-            
+        if (!autenticacao[0]) {
+            alert("nao houve auth")
+        }
+        else if (email===autenticacao[0].emailusuarios && senha===autenticacao[0].senha) {
+            alert("bem vindo!")
+            setToken(token)
         }
         else{
-            alert("nao foi")
+            alert("informacoes incorretas")
         }
-        setToken(token)
+        
     }
     return(
         <div className="Login">   
