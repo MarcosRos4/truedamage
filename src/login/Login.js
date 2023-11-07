@@ -8,29 +8,45 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types"
 import React, {useState} from 'react'
 
-async function loginUser(credentials) {
-    return fetch('http://localhost:2319/login', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(credentials)
-    })
-    .then(data => data.json())
-}
 
 export default function Login({setToken}){
     
     const [email, setEmail] = useState()
     const [senha, setSenha] = useState()
+    const [info, setInfo] = useState("nada")
+    /*
+    const [tokenteste, setTokenTeste] = useState(info)
+    */
+    async function loginUser(credentials) {
+        return fetch(`http://localhost:2319/usuarios/buscarpemail/${credentials}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setInfo(data)
+            console.log(info)
+            /*setTokenTeste(data)*/
+        })
+        .catch((err)=> {console.log(err.message)})
+    }
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser({
-          email,
-          senha
-        });
-        setToken(token);
-    }
+        const token = await loginUser(email);
 
+        if (email===info[0].emailusuarios && senha===info[0].senha) {
+            alert("foi")
+            
+        }
+        else{
+            alert("nao foi")
+        }
+        /*   setToken(token)*/
+    }
+    /*
+    setToken(tokenteste)
+    */
     return(
         <div className="Login">   
             
@@ -56,4 +72,4 @@ export default function Login({setToken}){
     );
 }
 
-Login.propTypes = {setToken: PropTypes.func.isRequired}
+/*Login.propTypes = {setToken: PropTypes.func.isRequired}*/
