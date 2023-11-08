@@ -24,6 +24,31 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+
+    @media (max-width: 820px) {
+        position: absolute;
+        top: 566px;
+        left: 50px;
+        width: 150%;
+        height: 600px;
+    }
+
+    @media (max-width: 412px) {
+        position: absolute;
+        top: 530px;
+        left: 20px;
+        width: 90%;
+        height: 915px;
+        font-size: 0.6em;
+    }
+
+    @media (max-width: 360px) {
+        position: absolute;
+        top: 530px;
+        left: 20px;
+        width: 90%;
+        height: 740px;
+    }
 }
 
 .pesquisa {
@@ -121,6 +146,18 @@ th{
     position: absolute;
     top: 25px;
     left: 10px;
+
+    @media (max-width: 820px) {        
+        top: 435px;    
+    }
+
+    @media (max-width: 412px) {
+        top: 496px;
+    }
+
+    @media (max-width: 360px) {
+        top: 458px;
+    }
 }
 
 
@@ -128,85 +165,91 @@ th{
     position: absolute;
     bottom: 0px;
     left: 0px;
-     
-}
-
-/* iPad Air */
-
-@media (max-width: 820px) {
-    /* .pagina {
-        width: 820px;
-        height: 1180px;
-    } */
     
-    .menu {
-        position: absolute;
-        top: 566px;
-        left: 50px;
-        width: 150%;
-        height: 600px;
-    }
-
-    .faixa-giants {
-        top: 435px;
-    }
-
-    .faixa-giants2 {
+    @media (max-width: 820px) {
         top: 1257px;
     }
-}
 
-/* Samsung S20 / IPhone X */
-
-@media (max-width: 412px) {
-    .pagina {
-        width: 412px;
-        height: 915px;
-    }
-    
-    
-    .menu {
-        position: absolute;
-        top: 530px;
-        left: 20px;
-        width: 90%;
-        height: 915px;
-        font-size: 0.6em;
-    }
-
-    .faixa-giants {
-        top: 496px;
-    }
-
-    .faixa-giants2 {
+    @media (max-width: 412px) {
         top: 1318px;
     }
-}
 
-/* Samsung Galaxy S8 */
-
-@media (max-width: 360px) {
-    .pagina {
-        width: 360px;
-        height: 740px;
-    }
-
-    .menu {
-        position: absolute;
-        top: 530px;
-        left: 20px;
-        width: 90%;
-        height: 740px;
-    }
-
-    .faixa-giants {
-        top: 458px;
-    }
-
-    .faixa-giants2 {
+    @media (max-width: 360px) {
         top: 1238px;
     }
+
 }
+
+
+// @media (max-width: 820px) {
+//     .menu {
+//         position: absolute;
+//         top: 566px;
+//         left: 50px;
+//         width: 150%;
+//         height: 600px;
+//     }
+
+//     .faixa-giants {
+//         top: 435px;
+//     }
+
+//     .faixa-giants2 {
+//         top: 1257px;
+//     }
+// }
+
+// /* Samsung S20 / IPhone X */
+
+// @media (max-width: 412px) {
+//     .pagina {
+//         width: 412px;
+//         height: 915px;
+//     }
+    
+    
+//     .menu {
+//         position: absolute;
+//         top: 530px;
+//         left: 20px;
+//         width: 90%;
+//         height: 915px;
+//         font-size: 0.6em;
+//     }
+
+//     .faixa-giants {
+//         top: 496px;
+//     }
+
+//     .faixa-giants2 {
+//         top: 1318px;
+//     }
+// }
+
+// /* Samsung Galaxy S8 */
+
+// @media (max-width: 360px) {
+//     .pagina {
+//         width: 360px;
+//         height: 740px;
+//     }
+
+//     .menu {
+//         position: absolute;
+//         top: 530px;
+//         left: 20px;
+//         width: 90%;
+//         height: 740px;
+//     }
+
+//     .faixa-giants {
+//         top: 458px;
+//     }
+
+//     .faixa-giants2 {
+//         top: 1238px;
+//     }
+// }
 
 
 }
