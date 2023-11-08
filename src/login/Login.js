@@ -13,10 +13,6 @@ export default function Login({setToken}){
     
     const [email, setEmail] = useState("email")
     const [senha, setSenha] = useState("senha")
-    const [info, setInfo] = useState({
-        "emailusuarios":"",
-        "senha":""
-    })
 
     async function loginUser(credentials) {
         return fetch('http://localhost:2319/login', {
@@ -37,7 +33,6 @@ export default function Login({setToken}){
         })
         .then((resp) => resp.json())
         .then((data) => {
-            setInfo(data)
             return data       
         })
         .catch((err)=> {
@@ -52,14 +47,14 @@ export default function Login({setToken}){
         const token = await loginUser({email, senha})
 
         if (!autenticacao[0]) {
-            alert("nao houve auth")
+            alert("Cadastro Não Encontrado")
         }
         else if (email===autenticacao[0].emailusuarios && senha===autenticacao[0].senha) {
-            alert("bem vindo!")
+            alert("Bem Vindo!")
             setToken(token)
         }
         else{
-            alert("informacoes incorretas")
+            alert("Informacoes Incorretas")
         }
         
     }
