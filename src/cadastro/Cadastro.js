@@ -1,8 +1,17 @@
 import './Cadastro.scss';
 import faixagiants from "../images/faixa giants.png"
 import muitosekkos from "../images/muitos ekkos.png"
+import useAuth from '../login/useAuth.js';
+import Login from '../login/Login.js';
 
 export default function Cadastro(){
+	
+	const {token, setToken} = useAuth()
+
+    if(!token) {
+        return <Login setToken={setToken} />
+    }
+	
 	return(
 		<div className="Cadastro">
 			<img src={faixagiants} class="faixa-giants" alt="Faixa Giants"></img>

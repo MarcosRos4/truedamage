@@ -2,8 +2,17 @@ import './Consulta.scss'
 import quianabola from "../images/quiana bola.png";
 import faixagiants from "../images/faixa giants.png"
 import akalibola from "../images/akali bola.png";
+import useAuth from '../login/useAuth.js';
+import Login from '../login/Login.js';
 
 export default function Consulta(){
+
+    const {token, setToken} = useAuth()
+
+    if(!token) {
+        return <Login setToken={setToken} />
+      }
+    
     return(
     <div className="Consulta">
     <img src={akalibola} class="akali" alt="akali bola"></img>
