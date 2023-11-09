@@ -4,6 +4,7 @@ import faixagiants from "../images/faixa giants.png"
 import akalibola from "../images/akali bola.png";
 import useAuth from '../login/useAuth.js';
 import Login from '../login/Login.js';
+import EventoFull from '../components/EventoFull/EventoFull.js';
 
 export default function Consulta(){
 
@@ -32,53 +33,22 @@ export default function Consulta(){
                     <table class="tabela-eventos">
                         <thead>
                             <tr class="cabecalho">
-                                <th>Data</th>
-                                <th>Casa</th>
-                                <th>Estado</th>
+                                <th>Evento</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>06 /10 / 2023</td>
-                                <td>Espaco Unimed</td>
-                                <td>Sao Paulo</td>
+                                <td><EventoFull
+                                    nome="MArcos"
+                                    data="09/11"
+                                    horario="20:00"
+                                    endereco="Avenida Paulista n 400"
+                                    cep="02194775"
+                                    local="Audio"
+
+                                ></EventoFull></td>
                             </tr>
-                            <tr>
-                                <td>13 /10 / 2023</td>
-                                <td>Villa Country</td>
-                                <td>Sao Paulo</td>
-                            </tr>
-                            <tr>
-                                <td>14 /10 / 2023</td>
-                                <td>Memorial da América Latina</td>
-                                <td>Sao Paulo</td>
-                            </tr>
-                            <tr>
-                                <td>15 /10 / 2023</td>
-                                <td>Estádio Beira-Rio</td>
-                                <td>Sao Paulo</td>
-                            </tr>
-                            <tr>
-                                <td>17 /10 / 2023</td>
-                                <td>Sea Club Ilhabela</td>
-                                <td>Sao Paulo</td>
-                            </tr>
-                            <tr>
-                                <td>19 /10 / 2023</td>
-                                <td>Pier Mauá</td>
-                                <td>Sao Paulo</td>
-                            </tr>
-    
-                            <tr>
-                                <td>20 /10 / 2023</td>
-                                <td>Quintal do Espeto Interlagos</td>
-                                <td>Sao Paulo</td>
-                            </tr>
-                            <tr>
-                                <td>23 /10 / 2023</td>
-                                <td>Audio</td>
-                                <td>Sao Paulo</td>
-                            </tr>
+                            
                         </tbody>
                     </table>                    
                     <button class="evento"><a href="/cadastro">Cadastrar Novo Evento</a></button>

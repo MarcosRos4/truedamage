@@ -30,7 +30,7 @@ endpoints.post('/evento/criar', async (req, resp) => {
     }
 
     if (!evento.espaco) {
-      throw new Error("Local do evento é obrigatório")
+      throw new Error("Espaço do evento é obrigatório")
     }
 
     if (!evento.cep) {

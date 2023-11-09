@@ -6,7 +6,7 @@ import giantslogo from "../images/giants logo.png";
 import ekkocartoon from "../images/ekko-cartoon.png"
 import quarteto from "../images/quarteto.jpg"
 import ConfiraAgendaBtn from '../components/ConfereButton/ConfiraAgendaBtn.js';
-import Evento from '../components/Evento/Evento.js';
+import EventoShort from '../components/EventoShort/EventoShort.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faTwitterSquare, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
@@ -50,28 +50,28 @@ export default function Landing() {
             <table class="tabela-tabdiv-faixa2">
                 <tbody>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                     <tr>
-                        <td><Evento data='06/10' local='Espaço Unimed'></Evento></td>
+                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
                     </tr>
                 </tbody>
             </table>

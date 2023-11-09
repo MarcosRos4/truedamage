@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `truedamage`.`usuarios` (
   `emailusuarios` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   PRIMARY KEY (`idusuarios`),
-  UNIQUE INDEX `emailusuarios_UNIQUE` (`emailusuarios` ASC VISIBLE))
+  UNIQUE INDEX (`emailusuarios`))
 ENGINE = InnoDB;
 
 

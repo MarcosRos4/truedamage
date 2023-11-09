@@ -1,10 +1,10 @@
 import React from "react";
-import './Evento.scss'
+import './EventoShort.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 import { faHouse, faTicket } from "@fortawesome/free-solid-svg-icons";
 
-export default class Evento extends React.Component{
+export default class EventoShort extends React.Component{
     render(){
         const {data, local} = this.props
         return(

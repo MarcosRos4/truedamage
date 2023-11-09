@@ -3,42 +3,20 @@ import faixagiants from "../images/faixa giants.png"
 import truedamagelogo from "../images/true damage logo.png"
 import truedamagegravacao from "../images/true damage gavacao.jpg"
 import truedamagegravacaotablet from "../images/true damage gavacao tablet.png"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types"
+import {autenticador, loginUser} from '../fetchs/userFetchs.js'
+
 import React, {useState} from 'react'
 
 
 export default function Login({setToken}){
     
     const [email, setEmail] = useState("email")
-    const [senha, setSenha] = useState("senha")
+    const [senha, setSenha] = useState(Math.random())
+    
 
-    async function loginUser(credentials) {
-        return fetch('http://localhost:2319/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-
-          },
-          body: JSON.stringify(credentials)
-        })
-          .then(data => data.json())
-       }
-
-    async function autenticador(credentials) {
-        return fetch(`http://localhost:2319/usuarios/buscarpemail/${credentials}`, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-        })
-        .then((resp) => resp.json())
-        .then((data) => {
-            return data       
-        })
-        .catch((err)=> {
-
-            console.log(err.message())})
-    }
 
     const handleSubmit = async e => {
         e.preventDefault();
