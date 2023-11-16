@@ -78,15 +78,19 @@
 .tabela-eventos-div {
     width: 100%;
     height: 655.459px;
-
+    
     border-radius: 29px;
     background: rgba(3, 2, 2, 0.61);
-
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+}
+
+.componente{
+    overflow-y: auto;
 }
 
 .tabela-eventos {

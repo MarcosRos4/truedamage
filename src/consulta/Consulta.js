@@ -4,60 +4,300 @@ import faixagiants from "../images/faixa giants.png"
 import akalibola from "../images/akali bola.png";
 import useAuth from '../login/useAuth.js';
 import Login from '../login/Login.js';
-import EventoFull from '../components/EventoFull/EventoFull.js';
+import EventoFull from '../components/EventoFull/EventoFull.js'
+import { useState } from 'react';
+import { useMemo } from 'react';
+import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
+import { Box, IconButton } from '@mui/material';
+import { Delete, Edit } from '@mui/icons-material';
 
-export default function Consulta(){
+const initialData = [
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  },
+  {
+    "nome": "lapis de cor",
+    "espaco": "lapis de cor",
+    "endereco": "lapis de cor",
+    "cep": "0199999",
+    "data": "lapis de cor",
+    "horario": "lapis de cor"
+  }
+]
+
+const Consulta = () => {
+    const [data, setData] = useState(initialData);
+
+    const columns = useMemo(() => [
+      {
+        accessorKey: 'nome', //access nested data with dot notation
+        header: 'Nome',
+        size: 150,
+      },
+      {
+        accessorKey: 'espaco',
+        header: 'Estado',
+        size: 150,
+      },
+      {
+        accessorKey: 'endereco', //normal accessorKey
+        header: 'Logradouro',
+        size: 200,
+      },
+      {
+        accessorKey: 'cep',
+        header: 'CEP',
+        size: 150,
+      },
+      {
+        accessorKey: 'data',
+        header: 'Data',
+        size: 150,
+      },
+      {
+        accessorKey: 'horario',
+        header: 'Horário',
+        size: 150,
+      },
+    ],
+    [],);
+
+    const table = useMaterialReactTable({
+        columns,
+        data,
+        enableRowVirtualization: true,
+        enableRowActions: true,
+        positionActionsColumn: 'last',
+        renderRowActions: ({ row, table }) => (
+        <Box sx={{ display: 'flex', flexWrap: 'nowrap', gap: '8px' }}>
+          
+          <IconButton
+            color="secondary"
+            onClick={() => {
+              table.setEditingRow(row);
+            }}
+          >
+            <Edit/>
+          </IconButton>
+          <IconButton
+            color="error"
+            onClick={() => {
+              data.splice(row.index, 1); //assuming simple data table
+              setData([...data]);
+            }}
+          >
+            <Delete/>
+          </IconButton>
+        </Box>
+      ),
+
+    });
 
     const {token, setToken} = useAuth()
 
     if(!token) {
         return <Login setToken={setToken} />
-      }
+    }
     
-    return(
+    return(<MaterialReactTable className='componente' table={table}/> /*
     <div className="Consulta">
-    <img src={akalibola} class="akali" alt="akali bola"></img>
-    <img src={quianabola} class="quiana" alt="`quiana bola"></img>
-    <img src={faixagiants} class="faixa-giants" alt="faixa giants"></img>
-        <div name="`wrapper">
-            <div class="menu">
-                <div class="pesquisa">
-                    Procurar Evento
-                </div>
-                <div class="filtro">
-                    <span>Data</span> 
-                    <span>Casa</span>
-                    <span>Estado</span>
-                </div>
-                <div class="tabela-eventos-div">
-                    <table class="tabela-eventos">
-                        <thead>
-                            <tr class="cabecalho">
-                                <th>Evento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><EventoFull
-                                    nome="MArcos"
-                                    data="09/11"
-                                    horario="20:00"
-                                    endereco="Avenida Paulista n 400"
-                                    cep="02194775"
-                                    local="Audio"
-
-                                ></EventoFull></td>
-                            </tr>
+    <img src={akalibola} className="akali" alt="akali bola"></img>
+    <img src={quianabola} className="quiana" alt="`quiana bola"></img>
+    <img src={faixagiants} className="faixa-giants" alt="faixa giants"></img>
+        <div name="wrapper">
+                <div className="tabela-eventos-div"> 
                             
-                        </tbody>
-                    </table>                    
-                    <button class="evento"><a href="/cadastro">Cadastrar Novo Evento</a></button>
-                    <button class="evento"><a href="/">SAIR</a></button>
+                    <button className="evento"><a href="/cadastro">Cadastrar Novo Evento</a></button>
+                    <button className="evento"><a href="/">SAIR</a></button>
                 </div>
-            </div>
         </div>
-        <img src={faixagiants} class="faixa-giants2" alt="faixa giants"></img>
-    </div>
+        <img src={faixagiants} className="faixa-giants2" alt="faixa giants"></img>
+    </div> */
     );
 }
-    
+
+
+export default Consulta
+
+

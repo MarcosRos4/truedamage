@@ -18,24 +18,29 @@ export default function Login({setToken}){
     
 
 
-    const handleSubmit = async e => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
         const autenticacao = await autenticador(email);
 
-        const token = await loginUser({email, senha})
+        if (!autenticacao || autenticacao.length === 0) {
+            alert("Cadastro Não Encontrado");
+        } else {
+            const token = await loginUser({ email, senha });
 
-        if (!autenticacao[0]) {
-            alert("Cadastro Não Encontrado")
+            if (email === autenticacao[0].emailusuarios && senha === autenticacao[0].senha) {
+                alert("Bem Vindo!");
+                setToken(token);
+            } else {
+                alert("Informacoes Incorretas");
+            }
         }
-        else if (email===autenticacao[0].emailusuarios && senha===autenticacao[0].senha) {
-            alert("Bem Vindo!")
-            setToken(token)
-        }
-        else{
-            alert("Informacoes Incorretas")
-        }
-        
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        alert("Erro ao processar a requisição. Por favor, tente novamente.");
     }
+}
     return(
         <div className="Login">   
             
