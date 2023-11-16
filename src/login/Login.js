@@ -43,19 +43,18 @@ export default function Login({setToken}){
             <img src={truedamagegravacao} alt="banda true damage" className='imgdesktop'></img>
             
             
-            <div class="form-div">
-                <img class="giants1" src={faixagiants} alt="Faixa Giants"></img>
-                    <img class="logo" src={truedamagelogo} alt="True Damage Logo"></img>
+            <div className="form-div">
+                <img className="giants1" src={faixagiants} alt="Faixa Giants"></img>
+                    <img className="logo" src={truedamagelogo} alt="True Damage Logo"></img>
                     <form onSubmit={handleSubmit}>
                         <input onChange={e => setEmail(e.target.value)} type="text" placeholder="Usuário"></input>
                         <input onChange={e => setSenha(e.target.value)} type="password" name="senha" id="senha-input" placeholder="Senha"></input>
                         <button type="submit">
-                            ENTRAR
                             <FontAwesomeIcon icon={faArrowRight} size="xl">
                             </FontAwesomeIcon>
                         </button>
                     </form>
-                <img class="giants2" src={faixagiants} alt="Faixa Giants"></img>
+                <img className="giants2" src={faixagiants} alt="Faixa Giants"></img>
             </div>
         </div>
     );
