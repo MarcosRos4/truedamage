@@ -12,5 +12,5 @@ servidor.use(cors())
 servidor.use(usuarioController)
 servidor.use(eventoController)
 
-const port = process.env.PORTDB
+const port = process.env.MYSQL_PORTDB
 servidor.listen(port, () => console.log(`API subiu na porta ${port}!`));
