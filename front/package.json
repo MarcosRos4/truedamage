@@ -32,8 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start-api": "nodemon src/api/index.js",
-    "start-react": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
