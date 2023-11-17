@@ -27,14 +27,11 @@ export async function atualizar(evento) {
   `
     UPDATE eventos 
     SET nome = ?, espaco = ?, endereco = ?, cep = ?,
-    capacidademaxima = ?, data = ?, horario = ?
-    WHERE ideventos like ?
+    data = ?, horario = ?
+    WHERE ideventos = ?
   `
   const [info] = await connection.query(comando,
-  [
-    evento.nome, evento.espaco, evento.endereco, evento.cep, evento.capacidademaxima,
-    evento.data, evento.horario,  evento.ideventos
-  ])
+  [evento.nome, evento.espaco, evento.endereco, evento.cep,evento.data, evento.horario,  evento.ideventos])
   return info;
 }
 

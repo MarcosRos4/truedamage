@@ -24,3 +24,18 @@ export async function deleteEventopId(id) {
         console.log(err)
     }
 }
+
+export async function atualizaEventoPorId(id, body) {
+    try {
+        const resp = await fetch(`http://${host}:${port}/evento/atualizar/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+        return resp;
+    } catch (err) {
+        console.log(err);
+    }
+}
