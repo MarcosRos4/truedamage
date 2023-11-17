@@ -1,247 +1,77 @@
 import './Consulta.scss'
-import quianabola from "../images/quiana bola.png";
-import faixagiants from "../images/faixa giants.png"
-import akalibola from "../images/akali bola.png";
 import useAuth from '../login/useAuth.js';
 import Login from '../login/Login.js';
-import EventoFull from '../components/EventoFull/EventoFull.js'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMemo } from 'react';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 import { Box, IconButton } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
+import { deleteEventopId, getAllEventos } from '../fetchs/eventoFetchs.js';
 
-const initialData = [
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  },
-  {
-    "nome": "lapis de cor",
-    "espaco": "lapis de cor",
-    "endereco": "lapis de cor",
-    "cep": "0199999",
-    "data": "lapis de cor",
-    "horario": "lapis de cor"
-  }
-]
+
 
 const Consulta = () => {
-    const [data, setData] = useState(initialData);
+    const [data, setData] = useState("");
 
     const columns = useMemo(() => [
       {
+        accessorKey: 'ideventos', //access nested data with dot notation
+        header: 'ID',
+        size: 100,
+      },
+      {
         accessorKey: 'nome', //access nested data with dot notation
         header: 'Nome',
-        size: 150,
+        size: 100,
       },
       {
         accessorKey: 'espaco',
         header: 'Estado',
-        size: 150,
+        size: 100,
       },
       {
         accessorKey: 'endereco', //normal accessorKey
         header: 'Logradouro',
-        size: 200,
+        size: 100,
       },
       {
         accessorKey: 'cep',
         header: 'CEP',
-        size: 150,
+        size: 100,
       },
       {
         accessorKey: 'data',
         header: 'Data',
-        size: 150,
+        size: 100,
       },
       {
         accessorKey: 'horario',
         header: 'Horário',
-        size: 150,
+        size: 100,
       },
     ],
     [],);
+
+    // carrega os eventos do BD na tabela através de um fetch
+    useEffect(() => {
+      const carregaEventos = async () => {
+        try {
+          const eventos = await getAllEventos()
+          setData(eventos)
+        } catch (error) {
+          alert(error.message)
+        }
+      }
+
+      carregaEventos()
+      
+    }, [])
+
+    const deleteEvento = async (index) => {
+      await deleteEventopId(data[index].ideventos)
+      data.splice(index, 1)
+      setData([...data])
+    }
 
     const table = useMaterialReactTable({
         columns,
@@ -262,10 +92,7 @@ const Consulta = () => {
           </IconButton>
           <IconButton
             color="error"
-            onClick={() => {
-              data.splice(row.index, 1); //assuming simple data table
-              setData([...data]);
-            }}
+            onClick={() => deleteEvento(row.index)}
           >
             <Delete/>
           </IconButton>
@@ -280,20 +107,13 @@ const Consulta = () => {
         return <Login setToken={setToken} />
     }
     
-    return(<MaterialReactTable className='componente' table={table}/> /*
-    <div className="Consulta">
-    <img src={akalibola} className="akali" alt="akali bola"></img>
-    <img src={quianabola} className="quiana" alt="`quiana bola"></img>
-    <img src={faixagiants} className="faixa-giants" alt="faixa giants"></img>
-        <div name="wrapper">
-                <div className="tabela-eventos-div"> 
-                            
-                    <button className="evento"><a href="/cadastro">Cadastrar Novo Evento</a></button>
-                    <button className="evento"><a href="/">SAIR</a></button>
-                </div>
-        </div>
-        <img src={faixagiants} className="faixa-giants2" alt="faixa giants"></img>
-    </div> */
+    return(
+     
+      <div className="Consulta">
+        <MaterialReactTable className='componente' table={table}/>
+        <button className="evento"><a href="/cadastro">Cadastrar Novo Evento</a></button>
+        <button className="evento"><a href="/">SAIR</a></button> 
+      </div>
     );
 }
 

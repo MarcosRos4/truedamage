@@ -41,9 +41,9 @@ export async function buscarPorEmail(email) {
   `
     SELECT emailusuarios, senha
     FROM usuarios
-    WHERE emailusuarios like ?
+    WHERE emailusuarios = ?;
   `
-  const [linhas] = await connection.query(comando, ['%'+email+'%']);
+  const [linhas] = await connection.query(comando, email);
   return linhas;
 }
 

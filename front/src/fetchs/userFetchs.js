@@ -1,7 +1,8 @@
-const port = process.env.PORT
+import { host, port } from "./common consts.js"
+
 
 export async function loginUser(credentials) {
-        const data = await fetch(`http://20.195.205.69:${port}/login`, {
+        const data = await fetch(`http://${host}:${port}/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -13,7 +14,7 @@ export async function loginUser(credentials) {
 
 export async function autenticador(email) {
         try {
-        const resp = await fetch(`http://20.195.205.69:${port}/usuarios/buscarpemail/${email}`, {
+        const resp = await fetch(`http://${host}:${port}/usuarios/buscarpemail/${email}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         })

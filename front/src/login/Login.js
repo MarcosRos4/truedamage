@@ -17,30 +17,34 @@ export default function Login({setToken}){
     const [senha, setSenha] = useState(Math.random())
     
 
-
     const handleSubmit = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    try {
-        const autenticacao = await autenticador(email);
+        try {
+            const autenticacao = await autenticador(email);
 
-        if (!autenticacao || autenticacao.length === 0) {
-            alert("Cadastro Não Encontrado");
-        } else {
-            const token = await loginUser({ email, senha });
+            if (!autenticacao || autenticacao.length === 0) 
+                alert("Cadastro Não Encontrado")
 
-            if (email === autenticacao[0].emailusuarios && senha === autenticacao[0].senha) {
-                alert("Bem Vindo!");
-                setToken(token);
-            } else {
-                alert("Informacoes Incorretas");
+            else {
+                const token = await loginUser({ email, senha });
+
+                if (email === autenticacao[0].emailusuarios && senha === autenticacao[0].senha) {
+                    alert("Bem Vindo!");setToken(token);
+                    
+                }
+                else {
+                    alert("Informacoes Incorretas");
+                }
             }
         }
-    } catch (error) {
-        console.error("Erro na requisição:", error);
-        alert("Erro ao processar a requisição. Por favor, tente novamente.");
+        
+        catch (error) {
+            console.error("Erro na requisição:", error);
+            alert("Erro ao processar a requisição. Por favor, tente novamente.");
+        }
     }
-}
+
     return(
         <div className="Login">   
             

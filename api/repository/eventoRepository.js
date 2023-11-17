@@ -4,8 +4,7 @@ import { connection } from "./connection.js";
 export async function listarTodos() {
   const comando =
   `
-    SELECT nome, espaco, endereco, cep, data, horario
-    FROM eventos
+    SELECT * FROM eventos
   `
   const [linhas] = await connection.query(comando);
   return linhas;
