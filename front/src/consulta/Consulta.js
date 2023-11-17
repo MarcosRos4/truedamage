@@ -6,13 +6,13 @@ import { useMemo } from 'react';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
 import { Box, IconButton } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
-import { deleteEventopId, getAllEventos } from '../fetchs/eventoFetchs.js';
-
+import { atualizaEventoPorId, deleteEventopId, getAllEventos } from '../fetchs/eventoFetchs.js';
 
 
 const Consulta = () => {
     const [data, setData] = useState("");
-
+    
+    
     const columns = useMemo(() => [
       {
         accessorKey: 'ideventos', //access nested data with dot notation
@@ -53,8 +53,7 @@ const Consulta = () => {
     [],);
 
     // carrega os eventos do BD na tabela através de um fetch
-    useEffect(() => {
-      const carregaEventos = async () => {
+    useEffect(() => { const carregaEventos = async () => {
         try {
           const eventos = await getAllEventos()
           setData(eventos)
@@ -66,6 +65,11 @@ const Consulta = () => {
       carregaEventos()
       
     }, [])
+
+    const atualizaEvento = async ({ values, table }) => {
+      await atualizaEventoPorId(values.ideventos, values)
+      table.setEditingRow(null); //exit editing mode
+    };
 
     const deleteEvento = async (index) => {
       await deleteEventopId(data[index].ideventos)
@@ -97,15 +101,16 @@ const Consulta = () => {
             <Delete/>
           </IconButton>
         </Box>
-      ),
+        ),
+        onEditingRowSave: atualizaEvento
 
     });
-
+    /*
     const {token, setToken} = useAuth()
 
     if(!token) {
         return <Login setToken={setToken} />
-    }
+    }*/
     
     return(
      
