@@ -24,3 +24,14 @@ export async function autenticador(email) {
         console.log(err)
     }
 }
+
+export async function cadastrarUser(email, senha) {
+        const data = await fetch(`http://${host}:${port}/usuarios/criar`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email, senha})
+    })
+    return data
+}
