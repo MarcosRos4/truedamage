@@ -63,6 +63,7 @@ export default function Login({setToken}){
                             </FontAwesomeIcon>
                         </button>
                     </form>
+                    <a className='cadastro' href='/cadastro'><button>Ainda não tem conta?Cadastre-se!</button></a>
                 <img className="giants2" src={faixagiants} alt="Faixa Giants"></img>
             </div>
         </div>
