@@ -1,10 +1,18 @@
 import { connection } from "./connection.js";
 
-
 export async function listarTodos() {
   const comando =
   `
     SELECT * FROM eventos
+  `
+  const [linhas] = await connection.query(comando);
+  return linhas;
+}
+
+export async function listarShort() {
+  const comando =
+  `
+    SELECT nome, espaco, data, horario  FROM eventos
   `
   const [linhas] = await connection.query(comando);
   return linhas;

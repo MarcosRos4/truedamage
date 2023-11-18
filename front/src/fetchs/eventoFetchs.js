@@ -13,6 +13,19 @@ export async function getAllEventos() {
     }
 }
 
+export async function getShortEventos() {
+    try {
+        const resp = await fetch(`http://${host}:${port}/evento/listarshort`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await resp.json()
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 export async function deleteEventopId(id) {
     try {
         const resp = await fetch(`http://${host}:${port}/evento/excluir/${id}`, {
@@ -37,5 +50,18 @@ export async function atualizaEventoPorId(id, body) {
         return resp;
     } catch (err) {
         console.log(err);
+    }
+}
+
+export async function criarEventoApi(body) {
+    try {
+        const resp = await fetch(`http://${host}:${port}/evento/criar`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        })
+        return resp
+    } catch (err) {
+        console.log(err)
     }
 }

@@ -1,4 +1,3 @@
-
 import './Landing.scss';
 import truedamagelogo from "../images/true damage logo.png";
 import bandatruedamageescada from "../images/banda true damage escada.png"
@@ -10,20 +9,36 @@ import EventoShort from '../components/EventoShort/EventoShort.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faTwitterSquare, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from 'react';
+import { getShortEventos } from '../fetchs/eventoFetchs.js';
 
 export default function Landing() {
-  
-  return (
+
+    const [dados, setDados] = useState([])
+    
+    // carrega os eventos do BD na constante através de um fetch
+    const carregaEventos = async () => {
+      try {
+        const eventos = await getShortEventos()
+        setDados(eventos)
+      } catch (error) {
+        alert(error.message)
+      }
+    }
+    
+    // chama a funcção carregaEventos ao iniciar a pagina
+    useEffect(() => { carregaEventos() }, [])
+
+    return (
     <div className="Landing">
           <header>
         <div class="logo-div-header">
             <img src={truedamagelogo} alt="true damage logo"></img>
         </div>
         <div class="links-div-header">
-            <a class="shows-link">SHOWS</a>
+            <a href="/" class="shows-link">SHOWS</a>
             <a href="/" class="contatos-link">CONTATOS</a>
             <a className='login-a' href='/consulta'><button>LOGIN</button></a>
-            
         </div>
     </header>
     <div class="faixa1">
@@ -38,7 +53,6 @@ export default function Landing() {
                 <img class="giants-logo-centro" src={giantslogo} alt="giants logo"></img>
             </div>
             <ConfiraAgendaBtn targetElementId='faixa2'></ConfiraAgendaBtn>
-            
         </div>
     </div>
     <div class="faixa2" id='faixa2'>
@@ -47,32 +61,13 @@ export default function Landing() {
             <h2>VENDAS ABERTAS</h2>
         </div>
         <div class="tabdiv-faixa2">
-            <table class="tabela-tabdiv-faixa2">
+            <table dados={dados} class="tabela-tabdiv-faixa2">
                 <tbody>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
-                    <tr>
-                        <td><EventoShort data='06/10' local='Espaço Unimed'></EventoShort></td>
-                    </tr>
+                    {dados.map((item) => (
+                        <tr>
+                            <td><EventoShort nome={item.nome} horario={item.horario} data={item.data} local={item.espaco}></EventoShort></td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
@@ -80,13 +75,9 @@ export default function Landing() {
     <footer>
         <div class="socials-footer">
             <div class="socials-div">
-                
                 <a href="/"><FontAwesomeIcon icon={faInstagram} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
-                
                 <a href="/"><FontAwesomeIcon icon={faTwitterSquare} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
-                
                 <a href="/"><FontAwesomeIcon icon={faTiktok} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
-                
                 <a href="/"><FontAwesomeIcon icon={faYoutube} size='2x'></FontAwesomeIcon>  @TRUEDAMAGE</a>
             </div>
             <div class="contato-div">
@@ -99,7 +90,5 @@ export default function Landing() {
         </div>
     </footer>
     </div>
-  );
-
+  )
 }
-
