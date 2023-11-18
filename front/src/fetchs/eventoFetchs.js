@@ -13,6 +13,19 @@ export async function getAllEventos() {
     }
 }
 
+export async function getShortEventos() {
+    try {
+        const resp = await fetch(`http://${host}:${port}/evento/listarshort`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        const data = await resp.json()
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 export async function deleteEventopId(id) {
     try {
         const resp = await fetch(`http://${host}:${port}/evento/excluir/${id}`, {

@@ -93,6 +93,13 @@ const Consulta = () => {
         muiEditTextFieldProps: {
           type: 'date',
           required: true,
+          error: !!validationErrors?.data,
+          helperText: validationErrors?.data,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              nome: undefined,
+            }),
         },
       },
       {
@@ -102,7 +109,14 @@ const Consulta = () => {
         size: 100,
         muiEditTextFieldProps: {
           type: 'time',
-          required: true
+          required: true,
+          error: !!validationErrors?.horario,
+          helperText: validationErrors?.horario,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              nome: undefined,
+            }),
         },
       },
     ],
@@ -219,12 +233,12 @@ const Consulta = () => {
           </Button>
       ),
     });
-    /*
+    
     const {token, setToken} = useAuth()
 
     if(!token) {
         return <Login setToken={setToken} />
-    }*/
+    }
     
     return(
       <div className="Consulta">
@@ -242,6 +256,8 @@ function validateEvento(evento) {
     nome: !validateRequired(evento.nome) ? 'Nome é Obrigatório' : '',
     espaco: !validateRequired(evento.espaco) ? 'Espaço é Obrigatório' : '',
     endereco: !validateRequired(evento.endereco) ? 'Logradouro é Obrigatório' : '',
+    data: !validateRequired(evento.data) ? 'Data é Obrigatório' : '',
+    horario: !validateRequired(evento.horario) ? 'Horário é Obrigatório' : '',
     cep: !validarCEP(evento.cep) ? 'CEP está Inválido' : '',
   };
 }

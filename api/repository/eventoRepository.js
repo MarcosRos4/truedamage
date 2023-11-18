@@ -9,6 +9,15 @@ export async function listarTodos() {
   return linhas;
 }
 
+export async function listarShort() {
+  const comando =
+  `
+    SELECT nome, espaco, data, horario  FROM eventos
+  `
+  const [linhas] = await connection.query(comando);
+  return linhas;
+}
+
 export async function criar(evento) {
   const comando =
   `

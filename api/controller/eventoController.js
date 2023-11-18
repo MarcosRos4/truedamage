@@ -1,6 +1,6 @@
 import {
   listarTodos, criar, atualizar, buscarPorCep,
-  buscarPorData, buscarPorNome, excluir
+  buscarPorData, buscarPorNome, excluir, listarShort
   } from "../repository/eventoRepository.js";
 
 import { Router } from "express";
@@ -11,6 +11,19 @@ const endpoints = Router();
 endpoints.get('/evento/listartodos', async (req, resp) => {
   try {
     let r = await listarTodos();
+    resp.send(r);
+  }
+  catch (error) {
+    resp.status(400).send({
+      erro: error.message
+    })
+  }
+})
+
+/* mostrar todos os eventos  */
+endpoints.get('/evento/listarshort', async (req, resp) => {
+  try {
+    let r = await listarShort();
     resp.send(r);
   }
   catch (error) {
