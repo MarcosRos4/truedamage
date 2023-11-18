@@ -1,6 +1,5 @@
 import { connection } from "./connection.js";
 
-
 export async function listarTodos() {
   const comando =
   `

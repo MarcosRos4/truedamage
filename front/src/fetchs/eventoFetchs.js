@@ -39,3 +39,16 @@ export async function atualizaEventoPorId(id, body) {
         console.log(err);
     }
 }
+
+export async function criarEventoApi(body) {
+    try {
+        const resp = await fetch(`http://${host}:${port}/evento/criar`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        })
+        return resp
+    } catch (err) {
+        console.log(err)
+    }
+}
