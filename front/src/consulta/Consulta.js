@@ -4,16 +4,16 @@ import Login from '../login/Login.js';
 import { useState, useEffect } from 'react';
 import { useMemo } from 'react';
 import { MaterialReactTable, useMaterialReactTable, MRT_EditActionButtons } from 'material-react-table';
-import { Box, Button, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
+import { Box, Button, DialogActions, DialogContent, DialogTitle, IconButton, createTheme, ThemeProvider} from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 import { atualizaEventoPorId, criarEventoApi, deleteEventopId, getAllEventos } from '../fetchs/eventoFetchs.js';
 
 
 const Consulta = () => {
-    const [data, setData] = useState("");
-    const [validationErrors, setValidationErrors] = useState({});
-    
-    const columns = useMemo(() => [
+  const [data, setData] = useState("");
+  const [validationErrors, setValidationErrors] = useState({});
+  
+  const columns = useMemo(() => [
       {
         accessorKey: 'ideventos', // IDEVENTOS
         header: 'ID',
@@ -120,21 +120,21 @@ const Consulta = () => {
         },
       },
     ],
-    [validationErrors],);
+  [validationErrors],);
 
-    //FUNÇÃO QUE CARREGA EVENTOS PARA A VARIAVEL DATA
-    const carregaEventos = async () => {
+  //FUNÇÃO QUE CARREGA EVENTOS PARA A VARIAVEL DATA
+  const carregaEventos = async () => {
       try {
         const eventos = await getAllEventos()
         setData(eventos)
       } catch (error) {
         alert(error.message)
       }
-    }
-    // carrega os eventos do BD na tabela através de um fetch
-    useEffect(() => { carregaEventos() }, [])
+  }
+  // carrega os eventos do BD na tabela através de um fetch
+  useEffect(() => { carregaEventos() }, [])
 
-    const atualizaEvento = async ({ values, table }) => {
+  const atualizaEvento = async ({ values, table }) => {
       const newValidationErrors = validateEvento(values);
       if (Object.values(newValidationErrors).some((error) => error)) {
         setValidationErrors(newValidationErrors);
@@ -143,15 +143,15 @@ const Consulta = () => {
       setValidationErrors({});
       await atualizaEventoPorId(values.ideventos, values)
       table.setEditingRow(null); //exit editing mode
-    };
+  }
 
-    const deleteEvento = async (index) => {
+  const deleteEvento = async (index) => {
       await deleteEventopId(data[index].ideventos)
       data.splice(index, 1)
       setData([...data])
-    }
+  }
 
-    const criarEvento = async ({ values, table }) => {
+  const criarEvento = async ({ values, table }) => {
       const newValidationErrors = validateEvento(values);
       if (Object.values(newValidationErrors).some((error) => error)) {
         setValidationErrors(newValidationErrors);
@@ -161,9 +161,9 @@ const Consulta = () => {
       await criarEventoApi(values);
       carregaEventos()
       table.setCreatingRow(null); //exit creating mode
-    };
+  }
 
-    const table = useMaterialReactTable({
+  const table = useMaterialReactTable({
       columns,
       data,
       enableStickyFooter:true,
@@ -179,7 +179,7 @@ const Consulta = () => {
       renderRowActions: ({ row, table }) => (
           <Box sx={{ display: 'flex', flexDirection:'column', flexWrap: 'nowrap', gap: '8px' }}>
 
-            <IconButton color="secondary" onClick={() => { table.setEditingRow(row) }}>
+            <IconButton color="primary" onClick={() => { table.setEditingRow(row) }}>
               <Edit/>
             </IconButton>
             <IconButton color="error" onClick={() => deleteEvento(row.index)}>
@@ -188,23 +188,25 @@ const Consulta = () => {
           </Box>
       ),
       // renderizar tabela de edição de envento
+      
       renderEditRowDialogContent: ({ table, row, internalEditComponents }) => (
           <>
-            <DialogTitle variant="h3">Editar Evento</DialogTitle>
+            <DialogTitle variant="h5">Editar Evento</DialogTitle>
             <DialogContent
               sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
             >
               {internalEditComponents} {/* or render custom edit components here */}
             </DialogContent>
             <DialogActions>
-              <MRT_EditActionButtons variant="text" table={table} row={row}/>
+              
+              <MRT_EditActionButtons  variant="text" table={table} row={row}/> 
             </DialogActions>
           </>
       ),
       // botão de criar novo evento
       renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
           <>
-            <DialogTitle variant="h3">Criar Novo Evento</DialogTitle>
+            <DialogTitle variant="h5">Criar Novo Evento</DialogTitle>
             <DialogContent
               sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
             >
@@ -220,31 +222,87 @@ const Consulta = () => {
           <Button
             variant="contained"
             onClick={() => {
-              table.setCreatingRow(true); //simplest way to open the create row modal with no default values
-              //or you can pass in a row object to set default values with the `createRow` helper function
-              // table.setCreatingRow(
-              //   createRow(table, {
-              //     //optionally pass in default values for the new row, useful for nested data or other complex scenarios
-              //   }),
-              // );
+              table.setCreatingRow(true)
             }}
           >
             Criar Novo Evento
           </Button>
       ),
-    });
-    
-    const {token, setToken} = useAuth()
+  })
 
-    if(!token) {
-        return <Login setToken={setToken} />
-    }
-    
-    return(
-      <div className="Consulta">
+  const tableTheme = useMemo(() =>
+    createTheme({
+      palette: {
+          mode: 'dark',
+          primary: {
+            main: '#0dfb91',
+          },
+          secondary: {
+            main: '#681bd8',
+          },
+      },
+      typography: {
+          fontFamily: 'League Spartan, sans-serif',
+          fontWeightRegular: 700,
+          fontSize: 20,
+      },
+      props: {
+          MuiButton: {
+            size: 'small',
+          },
+          MuiButtonGroup: {
+            size: 'small',
+          },
+          MuiCheckbox: {
+            size: 'small',
+          },
+          MuiFab: {
+            size: 'small',
+          },
+          MuiFormControl: {
+            margin: 'dense',
+            size: 'small',
+          },
+          MuiFormHelperText: {
+            margin: 'dense',
+          },
+          MuiIconButton: {
+            size: 'small',
+          },
+          MuiInputBase: {
+            margin: 'dense',
+          },
+          MuiInputLabel: {
+            margin: 'dense',
+          },
+          MuiRadio: {
+            size: 'small',
+          },
+          MuiSwitch: {
+            size: 'small',
+          },
+          MuiTextField: {
+            margin: 'dense',
+            size: 'small',
+          },
+      },
+    }),
+    [],
+  )
+  
+  const {token, setToken} = useAuth()
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+  
+  return(
+    <div className="Consulta">
+      <ThemeProvider theme={tableTheme}>
         <MaterialReactTable  table={table}/> 
-      </div>
-    );
+      </ThemeProvider>
+    </div>
+  );
 }
 
 export default Consulta

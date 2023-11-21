@@ -44,7 +44,7 @@ export default function Cadastro(){
 			<img src={faixagiants} className="faixa-giants" alt="Faixa Giants"></img>
    			<img src={faixagiants} className="faixa-giants2" alt="Faixa Giants"></img>
 			<img src={muitosekkos} className="muitos-ekko" alt="muitos-ekko"></img>
-   			<div className="group-10">
+   			
 				<form className="formulario" onSubmit={handleCadastro}>
 					<label>Cadastro de Admin</label>
 					<input onChange={(e) => {setUsuario(e.target.value)}} type="text" placeholder="  Usuário" required={true}></input>
@@ -53,7 +53,7 @@ export default function Cadastro(){
 					<input type="submit" value="Cadastrar"></input>
 
 				</form>
-			</div>
+			
 		</div>
 	);
 }

@@ -8,14 +8,25 @@ export default class EventoShort extends React.Component{
     render(){
         const {nome, data, local, horario} = this.props
         return(
-            <div className="Evento">
-                <h3><FontAwesomeIcon icon={faSplotch} /> {nome}</h3>
-                <h3><FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon> {data}</h3>
-                <h3> <FontAwesomeIcon icon={faClock} />{horario}</h3>
-                <h3><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon> {local}</h3>
-                <a href='https://www.sp.senac.br'>
-                <button><FontAwesomeIcon icon={faTicket}></FontAwesomeIcon> INGRESSOS</button></a>
-            </div>
+            <tr className="Evento">
+                <td className="nome">
+                    <h3><FontAwesomeIcon icon={faSplotch} /> {nome}</h3>
+                </td>
+                <td>
+                    <h3><FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon> {data}</h3>
+                </td>
+                <td>
+                    <h3><FontAwesomeIcon icon={faClock} />{horario}</h3>
+                </td>
+                <td>
+                    <h3><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon> {local}</h3>
+                </td>
+                <td>
+                    <a href='https://www.sp.senac.br'>
+                        <button><FontAwesomeIcon icon={faTicket}></FontAwesomeIcon> INGRESSOS</button>
+                    </a>
+                </td>
+            </tr>
         )
     }
 }
