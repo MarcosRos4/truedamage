@@ -64,9 +64,7 @@ export default function Landing() {
             <table dados={dados} class="tabela-tabdiv-faixa2">
                 <tbody>
                     {dados.map((item) => (
-                        <tr>
-                            <td><EventoShort nome={item.nome} horario={item.horario} data={item.data} local={item.espaco}></EventoShort></td>
-                        </tr>
+                        <EventoShort nome={item.nome} horario={item.horario} data={item.data} local={item.espaco}></EventoShort>
                     ))}
                 </tbody>
             </table>
