@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
 import './SemRota.scss'
 
 export default function SemRota(){
     return(
-        <div className="SemRora">
-            <h1>ROTA NÃO DEFINIDA, VOLTE AO INICIO: </h1>
-            <Link to='/'>INICIO</Link>
+        <div className="SemRota">
+            <h1>Algo deu errado no espaço-tempo 😵</h1>
+            <a href="/"><h1>Vamos tentar de novo!</h1></a>
+            
         </div>
     );
 }

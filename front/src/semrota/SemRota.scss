@@ -1,0 +1,17 @@
+.SemRota{
+    background-image: url('../images/semrotafundo.png');
+    height: 97vh;
+    background-repeat: no-repeat;
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 330px;
+
+    color: aliceblue;
+    a{
+        color: aliceblue;
+    }
+}

@@ -12,6 +12,16 @@ import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import { getShortEventos } from '../fetchs/eventoFetchs.js';
 
+function scrollToBottom(elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });    
+        }
+        return true
+}
+
+
+
 export default function Landing() {
 
     const [dados, setDados] = useState([])
@@ -36,8 +46,8 @@ export default function Landing() {
             <img src={truedamagelogo} alt="true damage logo"></img>
         </div>
         <div class="links-div-header">
-            <a href="/" class="shows-link">SHOWS</a>
-            <a href="/" class="contatos-link">CONTATOS</a>
+            <a onClick={() => scrollToBottom('faixa2')} class="shows-link">SHOWS</a>
+            <a onClick={() => scrollToBottom('socials')} class="contatos-link">CONTATOS</a>
             <a className='login-a' href='/consulta'><button>LOGIN</button></a>
         </div>
     </header>
@@ -71,7 +81,7 @@ export default function Landing() {
         </div>
     </div>
     <footer>
-        <div class="socials-footer">
+        <div class="socials-footer" id='socials'>
             <div class="socials-div">
                 <a href="/"><FontAwesomeIcon icon={faInstagram} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
                 <a href="/"><FontAwesomeIcon icon={faTwitterSquare} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
