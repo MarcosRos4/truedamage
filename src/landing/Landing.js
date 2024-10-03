@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faTwitterSquare, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-import { getShortEventos } from '../fetchs/eventoFetchs.js';
+import { supabase } from '../Conection.js';
 
 function scrollToBottom(elementId) {
         const element = document.getElementById(elementId);
@@ -29,8 +29,12 @@ export default function Landing() {
     // carrega os eventos do BD na constante através de um fetch
     const carregaEventos = async () => {
       try {
-        const eventos = await getShortEventos()
-        setDados(eventos)
+        
+        let { data: events, error } = await supabase
+        .from('events')
+        .select('*')
+
+        setDados(events)
       } catch (error) {
         alert(error.message)
       }

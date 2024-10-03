@@ -6,8 +6,7 @@ import { useMemo } from 'react';
 import { MaterialReactTable, useMaterialReactTable, MRT_EditActionButtons } from 'material-react-table';
 import { Box, Button, DialogActions, DialogContent, DialogTitle, IconButton, createTheme, ThemeProvider} from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
-import { atualizaEventoPorId, criarEventoApi, deleteEventopId, getAllEventos } from '../fetchs/eventoFetchs.js';
-
+import { supabase } from '../Conection.js';
 
 const Consulta = () => {
   const [data, setData] = useState("");
@@ -125,8 +124,12 @@ const Consulta = () => {
   //FUNÇÃO QUE CARREGA EVENTOS PARA A VARIAVEL DATA
   const carregaEventos = async () => {
       try {
-        const eventos = await getAllEventos()
-        setData(eventos)
+        
+      let { data: events} = await supabase
+        .from('events')
+        .select('*')
+
+        setData(events)
       } catch (error) {
         alert(error.message)
       }
@@ -141,13 +144,24 @@ const Consulta = () => {
         return;
       }
       setValidationErrors({});
-      await atualizaEventoPorId(values.ideventos, values)
+            
+      await supabase
+      .from('events')
+      .update(values)
+      .eq("id", values.id)
+        
+
+      
       table.setEditingRow(null); //exit editing mode
   }
 
   const deleteEvento = async (index) => {
-      await deleteEventopId(data[index].ideventos)
-      data.splice(index, 1)
+      await supabase
+      .from('events')
+      .delete()
+      .eq("id", data[index].id)
+
+      data.slice(index, 1)
       setData([...data])
   }
 
@@ -158,7 +172,10 @@ const Consulta = () => {
         return;
       }
       setValidationErrors({});
-      await criarEventoApi(values);
+      await supabase
+      .from('events')
+      .insert(values)
+      
       carregaEventos()
       table.setCreatingRow(null); //exit creating mode
   }
@@ -289,12 +306,7 @@ const Consulta = () => {
     }),
     [],
   )
-  
-  const {token, setToken} = useAuth()
 
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
   
   return(
     <div className="Consulta">

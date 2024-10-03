@@ -5,37 +5,38 @@ import truedamagegravacao from "../images/true damage gavacao.jpg"
 import truedamagegravacaotablet from "../images/true damage gavacao tablet.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types"
-import {autenticador, loginUser} from '../fetchs/userFetchs.js'
+import { supabase } from '../Conection.js'
+
 
 import React, {useState} from 'react'
 
 
 export default function Login({setToken}){
     
-    const [email, setEmail] = useState("email")
-    const [senha, setSenha] = useState(Math.random())
+    const [email, setEmail] = useState()
+    const [senha, setSenha] = useState()
     
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const autenticacao = await autenticador(email);
-
-            if (!autenticacao || autenticacao.length === 0) 
-                alert("Cadastro Não Encontrado")
-
-            else {
-                const token = await loginUser({ email, senha });
-
-                if (email === autenticacao[0].emailusuarios && senha === autenticacao[0].senha) {
-                    alert("Bem Vindo!");setToken(token);
                     
-                }
-                else {
-                    alert("Informacoes Incorretas");
-                }
+            let { data: users} = await supabase
+            .from('users')
+            .select('*')
+            .eq("email", email)
+            console.log(users)
+
+            if (!users || users.length === 0) {
+                alert("Cadastro Não Encontrado")
+            }
+            else if (senha !== users[0].password) {
+                alert("Informacoes Incorretas");
+            }
+            else {
+                alert("Bem Vindo!");
+                window.location.href = "/consulta"
             }
         }
         
@@ -56,8 +57,8 @@ export default function Login({setToken}){
                 <img className="giants1" src={faixagiants} alt="Faixa Giants"></img>
                     <img className="logo" src={truedamagelogo} alt="True Damage Logo"></img>
                     <form onSubmit={handleSubmit}>
-                        <input onChange={e => setEmail(e.target.value)} type="text" placeholder="Usuário"></input>
-                        <input onChange={e => setSenha(e.target.value)} type="password" name="senha" id="senha-input" placeholder="Senha"></input>
+                        <input onChange={e => setEmail(e.target.value)} type="text" placeholder="Usuário" required></input>
+                        <input onChange={e => setSenha(e.target.value)} type="password" name="senha" id="senha-input" placeholder="Senha" required></input>
                         <button type="submit">
                             <FontAwesomeIcon icon={faArrowRight} size="xl">
                             </FontAwesomeIcon>
@@ -69,5 +70,3 @@ export default function Login({setToken}){
         </div>
     );
 }
-
-Login.propTypes = {setToken: PropTypes.func.isRequired}
