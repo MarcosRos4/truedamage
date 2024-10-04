@@ -6,17 +6,16 @@ import truedamagegravacaotablet from "../images/true damage gavacao tablet.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { supabase } from '../Conection.js'
-
+import useAuth from './useAuth.js'
 
 import React, {useState} from 'react'
 
 
-export default function Login({setToken}){
+export default function Login(){
     
     const [email, setEmail] = useState()
     const [senha, setSenha] = useState()
-    
-
+    const {setToken} = useAuth()
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -26,8 +25,7 @@ export default function Login({setToken}){
             .from('users')
             .select('*')
             .eq("email", email)
-            console.log(users)
-
+            
             if (!users || users.length === 0) {
                 alert("Cadastro Não Encontrado")
             }
@@ -36,6 +34,7 @@ export default function Login({setToken}){
             }
             else {
                 alert("Bem Vindo!");
+                setToken("token-de-login")
                 window.location.href = "/consulta"
             }
         }

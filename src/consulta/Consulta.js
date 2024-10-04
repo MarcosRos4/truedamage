@@ -14,7 +14,7 @@ const Consulta = () => {
   
   const columns = useMemo(() => [
       {
-        accessorKey: 'ideventos', // IDEVENTOS
+        accessorKey: 'id', // id
         header: 'ID',
         enableEditing: false,
         size: 100
@@ -135,7 +135,7 @@ const Consulta = () => {
       }
   }
   // carrega os eventos do BD na tabela através de um fetch
-  useEffect(() => { carregaEventos() }, [])
+  useEffect(() => { carregaEventos() }, [data])
 
   const atualizaEvento = async ({ values, table }) => {
       const newValidationErrors = validateEvento(values);
@@ -174,7 +174,14 @@ const Consulta = () => {
       setValidationErrors({});
       await supabase
       .from('events')
-      .insert(values)
+      .insert({
+        "nome": values.nome,
+        "espaco": values.espaco,
+        "endereco": values.endereco,
+        "cep": values.cep,
+        "data": values.data,
+        "horario": values.horario
+      })
       
       carregaEventos()
       table.setCreatingRow(null); //exit creating mode
@@ -250,7 +257,7 @@ const Consulta = () => {
   const tableTheme = useMemo(() =>
     createTheme({
       palette: {
-          mode: 'dark',
+          mode: 'light',
           primary: {
             main: '#0dfb91',
           },
@@ -307,6 +314,11 @@ const Consulta = () => {
     [],
   )
 
+  const {token, setToken} = useAuth()
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
   
   return(
     <div className="Consulta">

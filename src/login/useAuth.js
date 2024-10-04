@@ -16,7 +16,7 @@ export default function useAuth() {
 
       return {
         setToken: saveToken,
-        token
+        token: getToken
       }
 }
 

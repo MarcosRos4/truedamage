@@ -3,14 +3,14 @@ import faixagiants from "../images/faixa giants.png"
 import muitosekkos from "../images/muitos ekkos.png"
 import { useState } from 'react';
 import { supabase } from '../Conection.js';
-
+import useAuth from '../login/useAuth.js';
 
 
 export default function Cadastro(){
 	const [user, setUser] = useState("")
 	const [password, setPassword] = useState(0)
 	const [confirmPassword, setConfirmPassword] = useState(0)
-
+	const {token, setToken} = useAuth()
 
 	const handleCadastro = async (e) => {
 		e.preventDefault()
@@ -26,7 +26,7 @@ export default function Cadastro(){
 					await supabase
 					.from('users')
 					.insert({ email: user, password: password })
-				
+					setToken("token-de-cadastro")
                 	alert("Bem Vindo!")
          	
 
