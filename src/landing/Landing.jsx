@@ -52,7 +52,7 @@ export default function Landing() {
         <div className="links-div-header">
             <a onClick={() => scrollToBottom('faixa2')} className="shows-link">SHOWS</a>
             <a onClick={() => scrollToBottom('socials')} className="contatos-link">CONTATOS</a>
-            <a className='login-a' href='/truedamage/login'><button>LOGIN</button></a>
+            <a className='login-a' href='/login'><button>LOGIN</button></a>
         </div>
     </header>
     <div className="faixa1">

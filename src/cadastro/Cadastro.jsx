@@ -30,7 +30,7 @@ export default function Cadastro(){
                 	alert("Bem Vindo!")
          	
 
-					window.location.href = '/truedamage/consulta'
+					window.location.href = '/consulta'
 				} else {
 					alert("Usuário já foi Cadastrado!")
 				}

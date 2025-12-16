@@ -18,11 +18,11 @@ root.render(
     <BrowserRouter>
       <Routes>
         
-        <Route path='/truedamage/' element={<Landing />} />
-        <Route path='/truedamage/cadastro' element={<Cadastro />} />
-        <Route path='/truedamage/consulta' element={<Consulta />} />
-        <Route path='/truedamage/login' element={<Login  />} />
-        <Route path='/truedamage/*' element={<SemRota />} />
+        <Route path='/' element={<Landing />} />
+        <Route path='/cadastro' element={<Cadastro />} />
+        <Route path='/consulta' element={<Consulta />} />
+        <Route path='/login' element={<Login  />} />
+        <Route path='/*' element={<SemRota />} />
         
       </Routes>
     </BrowserRouter>
