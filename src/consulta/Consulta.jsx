@@ -1,6 +1,6 @@
 import './Consulta.scss'
 import useAuth from '../login/useAuth.js';
-import Login from '../login/Login.js';
+import Login from '../login/Login.jsx';
 import { useState, useEffect } from 'react';
 import { useMemo } from 'react';
 import { MaterialReactTable, useMaterialReactTable, MRT_EditActionButtons } from 'material-react-table';
@@ -37,13 +37,13 @@ const Consulta = () => {
         size: 100,
       },
       {
-        accessorKey: 'espaco', // ESPAÇO
+        accessorKey: 'local', // ESPAÇO
         header: 'Espaço',
         muiEditTextFieldProps: {
           type: 'email',
           required: true,
-          error: !!validationErrors?.espaco,
-          helperText: validationErrors?.espaco,
+          error: !!validationErrors?.local,
+          helperText: validationErrors?.local,
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
@@ -135,7 +135,7 @@ const Consulta = () => {
       }
   }
   // carrega os eventos do BD na tabela através de um fetch
-  useEffect(() => { carregaEventos() }, [data])
+  useEffect(() => { carregaEventos() }, [])
 
   const atualizaEvento = async ({ values, table }) => {
       const newValidationErrors = validateEvento(values);
@@ -153,6 +153,7 @@ const Consulta = () => {
 
       
       table.setEditingRow(null); //exit editing mode
+      carregaEventos()
   }
 
   const deleteEvento = async (index) => {
@@ -163,6 +164,8 @@ const Consulta = () => {
 
       data.slice(index, 1)
       setData([...data])
+
+      carregaEventos()
   }
 
   const criarEvento = async ({ values, table }) => {
@@ -176,7 +179,7 @@ const Consulta = () => {
       .from('events')
       .insert({
         "nome": values.nome,
-        "espaco": values.espaco,
+        "local": values.local,
         "endereco": values.endereco,
         "cep": values.cep,
         "data": values.data,
@@ -336,7 +339,7 @@ const validateRequired = (value) => !!value.length;
 function validateEvento(evento) {
   return {
     nome: !validateRequired(evento.nome) ? 'Nome é Obrigatório' : '',
-    espaco: !validateRequired(evento.espaco) ? 'Espaço é Obrigatório' : '',
+    local: !validateRequired(evento.local) ? 'Espaço é Obrigatório' : '',
     endereco: !validateRequired(evento.endereco) ? 'Logradouro é Obrigatório' : '',
     data: !validateRequired(evento.data) ? 'Data é Obrigatório' : '',
     horario: !validateRequired(evento.horario) ? 'Horário é Obrigatório' : '',

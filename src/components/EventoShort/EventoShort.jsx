@@ -22,7 +22,8 @@ export default class EventoShort extends React.Component{
                     <h3><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon> {local}</h3>
                 </td>
                 <td>
-                    <a href='https://www.sp.senac.br'>
+                    
+                    <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/marcos-rosa-575398210/'>
                         <button><FontAwesomeIcon icon={faTicket}></FontAwesomeIcon> INGRESSOS</button>
                     </a>
                 </td>

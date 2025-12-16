@@ -4,8 +4,8 @@ import bandatruedamageescada from "../images/banda true damage escada.png"
 import giantslogo from "../images/giants logo.png";
 import ekkocartoon from "../images/ekko-cartoon.png"
 import quarteto from "../images/quarteto.jpg"
-import ConfiraAgendaBtn from '../components/ConfereButton/ConfiraAgendaBtn.js';
-import EventoShort from '../components/EventoShort/EventoShort.js';
+import ConfiraAgendaBtn from '../components/ConfereButton/ConfiraAgendaBtn.jsx';
+import EventoShort from '../components/EventoShort/EventoShort.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faTwitterSquare, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
@@ -46,58 +46,58 @@ export default function Landing() {
     return (
     <div className="Landing">
           <header>
-        <div class="logo-div-header">
-            <img src={truedamagelogo} alt="true damage logo"></img>
+        <div className="logo-div-header">
+            <img srcSet={truedamagelogo} alt="true damage logo"></img>
         </div>
-        <div class="links-div-header">
-            <a onClick={() => scrollToBottom('faixa2')} class="shows-link">SHOWS</a>
-            <a onClick={() => scrollToBottom('socials')} class="contatos-link">CONTATOS</a>
+        <div className="links-div-header">
+            <a onClick={() => scrollToBottom('faixa2')} className="shows-link">SHOWS</a>
+            <a onClick={() => scrollToBottom('socials')} className="contatos-link">CONTATOS</a>
             <a className='login-a' href='/login'><button>LOGIN</button></a>
         </div>
     </header>
-    <div class="faixa1">
+    <div className="faixa1">
         <picture>
-            <source media="(max-width:414px)" srcset={ekkocartoon}></source>
-            <source media="(max-width:820px)"  srcset={quarteto}></source>
-            <img src={bandatruedamageescada} alt="banda true damage"></img>
+            <source media="(max-width:414px)" srcSet={ekkocartoon}></source>
+            <source media="(max-width:820px)"  srcSet={quarteto}></source>
+            <img srcSet={bandatruedamageescada} alt="banda true damage"></img>
         </picture>
-        <div class="centro">
-            <div class="logo-centro-faixa1">
-                <img class="true-damage-logo-centro" src={truedamagelogo} alt="true damage logo"></img>
-                <img class="giants-logo-centro" src={giantslogo} alt="giants logo"></img>
+        <div className="centro">
+            <div className="logo-centro-faixa1">
+                <img className="true-damage-logo-centro" srcSet={truedamagelogo} alt="true damage logo"></img>
+                <img className="giants-logo-centro" srcSet={giantslogo} alt="giants logo"></img>
             </div>
             <ConfiraAgendaBtn targetElementId='faixa2'></ConfiraAgendaBtn>
         </div>
     </div>
-    <div class="faixa2" id='faixa2'>
-        <div class="logo-faixa2">
-            <img src={giantslogo} alt="logo giants"></img>
+    <div className="faixa2" id='faixa2'>
+        <div className="logo-faixa2">
+            <img srcSet={giantslogo} alt="logo giants"></img>
             <h2>VENDAS ABERTAS</h2>
         </div>
-        <div class="tabdiv-faixa2">
-            <table dados={dados} class="tabela-tabdiv-faixa2">
+        <div className="tabdiv-faixa2">
+            <table dados={dados} className="tabela-tabdiv-faixa2">
                 <tbody>
                     {dados.map((item) => (
-                        <EventoShort nome={item.nome} horario={item.horario} data={item.data} local={item.espaco}></EventoShort>
+                        <EventoShort nome={item.nome} horario={item.horario} data={item.data} local={item.local}></EventoShort>
                     ))}
                 </tbody>
             </table>
         </div>
     </div>
     <footer>
-        <div class="socials-footer" id='socials'>
-            <div class="socials-div">
+        <div className="socials-footer" id='socials'>
+            <div className="socials-div">
                 <a href="/"><FontAwesomeIcon icon={faInstagram} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
                 <a href="/"><FontAwesomeIcon icon={faTwitterSquare} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
                 <a href="/"><FontAwesomeIcon icon={faTiktok} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
                 <a href="/"><FontAwesomeIcon icon={faYoutube} size='2x'></FontAwesomeIcon>  @TRUEDAMAGE</a>
             </div>
-            <div class="contato-div">
+            <div className="contato-div">
                 <h5>Contato Profissional: </h5>
                 <a href="/">contato@truedamagebanda.com</a>
             </div>
         </div>
-        <div class="trademark-footer">
+        <div className="trademark-footer">
             <h6><FontAwesomeIcon icon={faCopyright}></FontAwesomeIcon> 2023 True Damage</h6>
         </div>
     </footer>

@@ -7,7 +7,7 @@ import useAuth from '../login/useAuth.js';
 
 
 export default function Cadastro(){
-	const [user, setUser] = useState("")
+	const [handle, setHandle] = useState("")
 	const [password, setPassword] = useState(0)
 	const [confirmPassword, setConfirmPassword] = useState(0)
 	const {token, setToken} = useAuth()
@@ -19,13 +19,13 @@ export default function Cadastro(){
     			
 				let { data: users } = await supabase
 				.from('users')
-				.select("*").eq("email", user)
+				.select("*").eq("handle", handle)
 				
 				if (users.length === 0) {
 					alert("Usuário Cadastrado com Sucesso!")
 					await supabase
 					.from('users')
-					.insert({ email: user, password: password })
+					.insert({ handle: handle, password: password })
 					setToken("token-de-cadastro")
                 	alert("Bem Vindo!")
          	
@@ -36,6 +36,7 @@ export default function Cadastro(){
 				}
     		}
 			catch (error) {
+				alert("Erro ao processar a chamada à API")
       			console.error('Erro ao processar a chamada à API', error);
     		}
 		}
@@ -51,7 +52,7 @@ export default function Cadastro(){
 			<img src={muitosekkos} className="muitos-ekko" alt="muitos-ekko"></img>
 				<form className="formulario" onSubmit={handleCadastro}>
 					<label>Cadastro de Admin</label>
-					<input onChange={(e) => {setUser(e.target.value)}} type="text" placeholder="  Usuário" required={true}></input>
+					<input onChange={(e) => {setHandle(e.target.value)}} type="text" placeholder="  Usuário" required={true}></input>
 					<input onChange={(e) => {setPassword(e.target.value)}} type="password" placeholder="  Senha" required={true}></input>
 					<input onChange={(e) => {setConfirmPassword(e.target.value)}} type="password" placeholder="  Confirme sua senha" required={true}></input>
 					<input type="submit" value="Cadastrar"></input>

@@ -13,9 +13,10 @@ import React, {useState} from 'react'
 
 export default function Login(){
     
-    const [email, setEmail] = useState()
+    const [handle, setHandle] = useState()
     const [senha, setSenha] = useState()
     const {setToken} = useAuth()
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -24,7 +25,7 @@ export default function Login(){
             let { data: users} = await supabase
             .from('users')
             .select('*')
-            .eq("email", email)
+            .eq("handle", handle)
             
             if (!users || users.length === 0) {
                 alert("Cadastro Não Encontrado")
@@ -56,7 +57,7 @@ export default function Login(){
                 <img className="giants1" src={faixagiants} alt="Faixa Giants"></img>
                     <img className="logo" src={truedamagelogo} alt="True Damage Logo"></img>
                     <form onSubmit={handleSubmit}>
-                        <input onChange={e => setEmail(e.target.value)} type="text" placeholder="Usuário" required></input>
+                        <input onChange={e => setHandle(e.target.value)} type="text" placeholder="Usuário" required></input>
                         <input onChange={e => setSenha(e.target.value)} type="password" name="senha" id="senha-input" placeholder="Senha" required></input>
                         <button type="submit">
                             <FontAwesomeIcon icon={faArrowRight} size="xl">
