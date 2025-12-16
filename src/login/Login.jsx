@@ -36,7 +36,7 @@ export default function Login(){
             else {
                 alert("Bem Vindo!");
                 setToken("token-de-login")
-                window.location.href = "/consulta"
+                window.location.href = "/truedamage/consulta"
             }
         }
         
@@ -64,7 +64,7 @@ export default function Login(){
                             </FontAwesomeIcon>
                         </button>
                     </form>
-                    <a className='cadastro' href='/cadastro'><button>Ainda não tem conta?Cadastre-se!</button></a>
+                    <a className='cadastro' href='/truedamage/cadastro'><button>Ainda não tem conta?Cadastre-se!</button></a>
                 <img className="giants2" src={faixagiants} alt="Faixa Giants"></img>
             </div>
         </div>

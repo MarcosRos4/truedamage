@@ -10,13 +10,13 @@ export default class EventoShort extends React.Component{
         return(
             <tr className="Evento">
                 <td className="nome">
-                    <h3><FontAwesomeIcon icon={faSplotch} /> {nome}</h3>
+                    <h3><FontAwesomeIcon icon={faSplotch}/> {nome}</h3>
                 </td>
                 <td>
                     <h3><FontAwesomeIcon icon={faCalendar}></FontAwesomeIcon> {data}</h3>
                 </td>
                 <td>
-                    <h3><FontAwesomeIcon icon={faClock} />{horario}</h3>
+                    <h3><FontAwesomeIcon icon={faClock}/>{horario}</h3>
                 </td>
                 <td>
                     <h3><FontAwesomeIcon icon={faHouse}></FontAwesomeIcon> {local}</h3>

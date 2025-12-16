@@ -52,7 +52,7 @@ export default function Landing() {
         <div className="links-div-header">
             <a onClick={() => scrollToBottom('faixa2')} className="shows-link">SHOWS</a>
             <a onClick={() => scrollToBottom('socials')} className="contatos-link">CONTATOS</a>
-            <a className='login-a' href='/login'><button>LOGIN</button></a>
+            <a className='login-a' href='/truedamage/login'><button>LOGIN</button></a>
         </div>
     </header>
     <div className="faixa1">
@@ -87,14 +87,14 @@ export default function Landing() {
     <footer>
         <div className="socials-footer" id='socials'>
             <div className="socials-div">
-                <a href="/"><FontAwesomeIcon icon={faInstagram} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
-                <a href="/"><FontAwesomeIcon icon={faTwitterSquare} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
-                <a href="/"><FontAwesomeIcon icon={faTiktok} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
-                <a href="/"><FontAwesomeIcon icon={faYoutube} size='2x'></FontAwesomeIcon>  @TRUEDAMAGE</a>
+                <a target="_blank" rel="noopener noreferrer"  href="https://www.linkedin.com/in/marcos-rosa-575398210/"><FontAwesomeIcon icon={faInstagram} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
+                <a target="_blank" rel="noopener noreferrer"  href="https://www.linkedin.com/in/marcos-rosa-575398210/"><FontAwesomeIcon icon={faTwitterSquare} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
+                <a target="_blank" rel="noopener noreferrer"  href="https://www.linkedin.com/in/marcos-rosa-575398210/"><FontAwesomeIcon icon={faTiktok} size='2x'></FontAwesomeIcon> @TRUEDAMAGE</a>
+                <a target="_blank" rel="noopener noreferrer"  href="https://www.linkedin.com/in/marcos-rosa-575398210/"><FontAwesomeIcon icon={faYoutube} size='2x'></FontAwesomeIcon>  @TRUEDAMAGE</a>
             </div>
             <div className="contato-div">
                 <h5>Contato Profissional: </h5>
-                <a href="/">contato@truedamagebanda.com</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/marcos-rosa-575398210/">contato@truedamagebanda.com</a>
             </div>
         </div>
         <div className="trademark-footer">
